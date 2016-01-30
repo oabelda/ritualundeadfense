@@ -24,6 +24,8 @@ public class UiHudManager : MonoBehaviour {
 
         _slider_MP.value = (float)_torre.TowerCurrentMana / (float)_torre.TowerMaxMana;
 
+        UpdateMoneyOnHUD();
+
     }
 
 	// Otros métodos publicos
@@ -32,4 +34,8 @@ public class UiHudManager : MonoBehaviour {
         _shopHud.SetActive(!_shopHud.activeInHierarchy);
     }
 	// Otros metodos privados
+    private void UpdateMoneyOnHUD()
+    {
+
+    }
 }

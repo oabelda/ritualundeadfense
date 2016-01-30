@@ -1840,6 +1840,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _shopHud: {fileID: 143900}
   _torre: {fileID: 0}
+  _slider_HP: {fileID: 11401070}
+  _slider_MP: {fileID: 11441240}
 --- !u!114 &11435898
 MonoBehaviour:
   m_ObjectHideFlags: 1
