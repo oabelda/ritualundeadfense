@@ -6,7 +6,11 @@ public class Enemy : MonoBehaviour {
 
     public double InitialLife;
     public double Damage;
-    public float AtackSpeed;
+    public float AttackSpeed;
+    public float RangeDistance;
+    public float Speed;
+    public float AttackAnimationTime;
+    public float DieAnimationTime;
 
 
 
@@ -14,7 +18,7 @@ public class Enemy : MonoBehaviour {
 
     private double _life;
     private float _lastAtackTime;
-    private enum STATE { IDLE=0, WALKING, ATTACKING, DYING }
+    private enum STATE { WALK=0, WALKING, ATTACK, ATTACKING, DIE, DYING }
     private enum TYPE { MEELE = 0, RANGE }
     private STATE _state;
     private Animator _animator;
@@ -26,10 +30,7 @@ public class Enemy : MonoBehaviour {
 
 
 	// Metodos Awake, Start, Update....
-
-	// Use this for spawn this instance
-	void Awake(){
-	}
+    
 
 	// Use this for initialization
 	void Start ()
@@ -38,28 +39,41 @@ public class Enemy : MonoBehaviour {
         _rigidbody = GetComponent<Rigidbody2D>();
         _life = InitialLife;
         _lastAtackTime = 0f;
-        _state = STATE.WALKING;
+        _state = STATE.WALK;
     }
 
 	// Update is called once per frame
 	void Update () {
 
-        MainAction(Time.deltaTime);
+        if (_type == TYPE.RANGE)
+        CheckForFrontAdversary();
+
+        MainAction();
     }
 
     //Stop Walking On TriggerEnter
     void OnTriggerEnter2D(Collider2D other)
     {
-        print("He colisionado con Algo");
         if(_type==TYPE.MEELE)
         {
-            if (other.CompareTag("Torre"))
+            if (other.CompareTag("Torre") || other.CompareTag("Ally"))
             {
-                print("He colisionado con la Torre");
                 _adversary = other.gameObject;
-                _state = STATE.ATTACKING;
+                _state = STATE.ATTACK;
             }
-            //else if(other.CompareTag("Aliado/INvocado/")) //SOLDADO, ALIADO, INVOCADO como coño sea el TAG
+        }
+    }
+
+    //Go on Walking On TriggerExit
+    void OnTriggerExit2D(Collider2D other)
+    {
+        if (_type == TYPE.MEELE)
+        {
+            if (other.CompareTag("Torre") || other.CompareTag("Ally"))
+            {
+                _adversary = null;
+                _state = STATE.WALK;
+            }
         }
     }
 
@@ -74,7 +88,7 @@ public class Enemy : MonoBehaviour {
         //Check if damege kills enemy
         if(_life<=0f)
         {
-            _state = STATE.DYING;
+            _state = STATE.DIE;
         }
     }
 
@@ -84,58 +98,84 @@ public class Enemy : MonoBehaviour {
 	// Otros metodos privados
 
     //Enemy Main Action
-    private void MainAction(float deltaTime)
+    private void MainAction()
     {
         switch(_state)
         {
+            case STATE.WALK:
+                _animator.SetInteger("State", 1);
+                _rigidbody.velocity = new Vector2(Speed, 0) * Time.deltaTime;
+                _state = STATE.WALKING;
+                break;
             case STATE.WALKING:
-                switch (_type)
-                {
-                    case TYPE.MEELE:
-                        _animator.SetTrigger("Walk");
-                        _rigidbody.velocity = new Vector2(-100, 0) * Time.deltaTime;
-                        break;
-                    case TYPE.RANGE:
-                        //IF(NO estoy en mi posicion final)
-                        _rigidbody.velocity = new Vector2(-100, 0) * Time.deltaTime;
-                        break;
-                }
+                break;
+            case STATE.ATTACK:
+                _rigidbody.velocity = Vector2.zero;
+                _animator.SetInteger("State", 0);
+                _lastAtackTime += Time.deltaTime;
+                if (_lastAtackTime >= AttackSpeed)
+                    _state = STATE.ATTACKING;
                 break;
             case STATE.ATTACKING:
-                _rigidbody.velocity = Vector2.zero;
-                _animator.SetTrigger("Idle");
-                _lastAtackTime += deltaTime;
-                if (_lastAtackTime >= AtackSpeed)
+                if(_adversary==null)
                 {
-                    switch(_type)
+                    _state = STATE.WALK;
+                }
+                else if (_adversary.CompareTag("Torre") || _adversary.CompareTag("Ally"))
+                {
+                    _animator.SetInteger("State", 2);
+                    switch (_type)
                     {
                         case TYPE.MEELE:
-                            if (_adversary.CompareTag("Torre"))
-                            {
-                                _animator.SetTrigger("Attack");
-                                _adversary.GetComponent<Torre>().damageTower(Damage);
-                            }
-                            //else if (_adversary.CompareTag("AliadoEtc....)
+                            _adversary.SendMessage("HitEnemy", Damage);
                             break;
                         case TYPE.RANGE:
-                            //Shoot proyectile
+                            //Shoot proyectile   //**ATACAR LANZAR PROYECTIL WHAT EVER (PASAR DAMAGE COMO PARAMETRO);
                             break;
                     }
-                    //**ATACAR LANZAR PROYECTIL WHAT EVER (PASAR DAMAGE COMO PARAMETRO);
-                    
-                    _lastAtackTime = 0;
                 }
+                StartCoroutine(Wait(AttackAnimationTime));
+                _lastAtackTime = 0;
                 break;
-            case STATE.DYING:
+            case STATE.DIE:
                 _rigidbody.velocity = Vector2.zero;
-                _animator.SetTrigger("Die");
+                _animator.SetInteger("State", 3);
+                StartCoroutine(Wait(DieAnimationTime));
                 Destroy(this.gameObject);
                 break;
-            case STATE.IDLE:
+            case STATE.DYING:
+                break;
             default:
-                _rigidbody.velocity = Vector2.zero;
-                _animator.SetTrigger("Idle");
                 break;
         }
+    }
+
+    private void CheckForFrontAdversary()
+    {
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.left, RangeDistance);
+        if (hit.collider != null)
+        {
+            if (hit.collider.CompareTag("Torre") || hit.collider.CompareTag("Ally"))
+            {
+                _adversary = hit.collider.gameObject;
+                _state = STATE.ATTACK;
+            }
+            else
+            {
+                _adversary = null;
+                _state = STATE.WALK;
+            }
+        }
+        else
+        {
+            _adversary = null;
+            _state = STATE.WALK;
+        }
+    }
+
+
+    IEnumerator Wait(float time)
+    {
+        yield return new WaitForSeconds(time);
     }
 }

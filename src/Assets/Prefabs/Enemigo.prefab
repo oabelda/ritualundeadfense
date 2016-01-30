@@ -87,7 +87,7 @@ Animator:
   m_GameObject: {fileID: 186486}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: e21cad43c45db414fb483e318c9cb405, type: 2}
+  m_Controller: {fileID: 9100000, guid: 8240ff7422b3aff428bcbb5bab939c98, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -103,12 +103,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 186486}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e865906d641a83e4f980ce8bb010c066, type: 3}
+  m_Script: {fileID: 11500000, guid: 9e1fcc3a62f483b42aee37b787b202c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   InitialLife: 100
   Damage: 10
-  AtackSpeed: 3
+  AttackSpeed: 0
+  RangeDistance: 0
+  Speed: 0
+  AttackAnimationTime: 0
+  DieAnimationTime: 0
   _type: 0
 --- !u!212 &21214976
 SpriteRenderer:
@@ -136,7 +140,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 3fc42700795baa742aab609df912c2d2, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 05e3026d3ede5054696792fb36965f24, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -146,7 +150,28 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 8240ff7422b3aff428bcbb5bab939c98, type: 2}
+    - target: {fileID: 0}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 05e3026d3ede5054696792fb36965f24,
+        type: 3}
+    - target: {fileID: 0}
+      propertyPath: InitialLife
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: Damage
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: AtackSpeed
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 186486}
