@@ -119,7 +119,6 @@ public class Enemy : MonoBehaviour {
                     _state = STATE.ATTACKING;
                 break;
             case STATE.ATTACKING:
-                Debug.Log("Entro en ATTACKING");
                 if (_adversary==null)
                 {
                     _state = STATE.WALK;
@@ -134,7 +133,6 @@ public class Enemy : MonoBehaviour {
                             break;
                         case TYPE.RANGE:
                             //Shoot proyectile   //**ATACAR LANZAR PROYECTIL WHAT EVER (PASAR DAMAGE COMO PARAMETRO);
-                            Debug.Log("Disparando proyectil");
                             newProyectile = Instantiate(projectile, transform.position + Vector3.left, Quaternion.identity) as GameObject;
                             newProyectile.GetComponent<ProjectileManager>().initParameters(Damage,Vector2.left,this.gameObject.tag);
                             break;

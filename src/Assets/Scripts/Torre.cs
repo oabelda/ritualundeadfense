@@ -8,6 +8,10 @@ public class Torre : MonoBehaviour {
     [Header("Tower Properties")]
     [SerializeField]
     double _towerMaxHP;
+    [SerializeField]
+    float _towerDamage;
+    [SerializeField]
+    float _towerCooldown;
 
     [System.Serializable]
     public class spritesTower
@@ -20,24 +24,31 @@ public class Torre : MonoBehaviour {
     
     [SerializeField]
     Sprite _healthyTower;
+    public GameObject projectile;
+    public Vector3 _projectileSpawnDeviation;
 
-
-    double _towerCurrentHP;
-    SpriteRenderer _towerSprite;
-
+    private double _towerCurrentHP;
+    private SpriteRenderer _towerSprite;
+    private float _towerCooldownTimer;
     // Use this for initialization
     void Start () {
         _towerCurrentHP = _towerMaxHP;
         _towerSprite = GetComponent<SpriteRenderer>();
         if (_towerSprite.sprite == null)
-            _towerSprite.sprite = _healthyTower; 
-	}
+            _towerSprite.sprite = _healthyTower;
+
+        _towerCooldownTimer = _towerCooldown;
+    }
+
+    void Update()
+    {
+        registerMouse();
+    }
 
     // Función para registrar el daño que recibe la torre
     public void HitEnemy(double damageReceived)
     {
         _towerCurrentHP -= damageReceived;
-        Debug.Log("Damage received, current HP: " + _towerCurrentHP);
         if (_towerCurrentHP > (_towerMaxHP * sprites[sprites.Length - 1].life) && _towerSprite.sprite != _healthyTower)
             _towerSprite.sprite = _healthyTower;
         else
@@ -73,6 +84,25 @@ public class Torre : MonoBehaviour {
                 break;
             }
         }
+    }
+
+    void registerMouse()
+    {
+        if (_towerCooldownTimer >= _towerCooldown)
+        {
+
+            if (Input.GetMouseButtonDown(0))
+            {
+                Vector3 _throwPosition = transform.position + _projectileSpawnDeviation;
+                Vector3 _directionVector = Camera.main.ScreenToWorldPoint(Input.mousePosition) - _throwPosition;
+
+                GameObject newProjectile = Instantiate(projectile, _throwPosition, Quaternion.identity) as GameObject;
+                newProjectile.GetComponent<ProjectileManager>().initParameters(_towerDamage, _directionVector, this.gameObject.tag);
+                _towerCooldownTimer = 0.0f;
+            }
+        }
+        _towerCooldownTimer += Time.deltaTime;
+        Debug.Log("cooldown: " + _towerCooldownTimer);
     }
 
 

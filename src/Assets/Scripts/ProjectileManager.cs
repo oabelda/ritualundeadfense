@@ -6,6 +6,8 @@ public class ProjectileManager : MonoBehaviour {
     [Header("Projectile properties")]
     [SerializeField]
     float m_speed;
+    [SerializeField]
+    float m_lifetime;
 
 
     // Variables privadas
@@ -15,6 +17,11 @@ public class ProjectileManager : MonoBehaviour {
     private GameObject _collider;
     private Vector3 _initialposition;
     private string _shootertag;
+
+    void Awake()
+    {
+        Destroy(this.gameObject, m_lifetime);
+    }
     // Metodos Awake, Start, Update....
     void Start()
     {
@@ -36,7 +43,9 @@ public class ProjectileManager : MonoBehaviour {
 	// Otros metodos privados
     void moveProjectile()
     {
-        _rigidbody.velocity = direction * m_speed * Time.deltaTime;
+
+       _rigidbody.velocity = direction * m_speed * Time.deltaTime;
+
     }
 
     void OnTriggerEnter2D (Collider2D other)
@@ -47,18 +56,20 @@ public class ProjectileManager : MonoBehaviour {
             case "Ally":
                 if (other.CompareTag("Enemy"))
                 {
-                    other.SendMessage("HitEnemy",m_damage, SendMessageOptions.RequireReceiver);
+                    other.gameObject.SendMessage("HitEnemy",m_damage, SendMessageOptions.RequireReceiver);
                     
                     Destroy(this.gameObject);
                 }
-                else if (other.CompareTag("Ally"))
+                else if (other.CompareTag("Ally") || other.CompareTag("Torre")) 
                     Physics2D.IgnoreCollision(GetComponent<Collider2D>(), other.GetComponent<Collider2D>(), true);
+
+                    
                 
                 break;
             case "Enemy":
                 if (other.CompareTag("Ally"))
                 {
-                    other.SendMessage("HitEnemy", m_damage, SendMessageOptions.RequireReceiver);
+                    other.gameObject.SendMessage("HitEnemy", m_damage, SendMessageOptions.RequireReceiver);
                     Destroy(this.gameObject);
                 }
                 else if (other.CompareTag("Torre"))
