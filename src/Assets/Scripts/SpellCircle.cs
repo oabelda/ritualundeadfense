@@ -48,14 +48,24 @@ public class SpellCircle : MonoBehaviour {
             // Hacer la magia
             if (spellPrefab != null)
             {
-                if (Torre != null) Torre.TowerCurrentMana -= spellPrefab.GetComponent<Spell>().manaCost;
-                GameObject.Instantiate(spellPrefab);
+                if (Torre != null)
+                {
+                    if (Torre.TowerCurrentMana >= spellPrefab.GetComponent<Spell>().manaCost)
+                    {
+                        Torre.TowerCurrentMana -= spellPrefab.GetComponent<Spell>().manaCost;
+                        GameObject.Instantiate(spellPrefab);
+                    }
+                    else
+                        NotEnoughtMana();
+                }
             }
             else
             {
-                if(_spell.Count> 0 && Torre != null)
+                if (_spell.Count > 0 && Torre != null)
                 {
                     Torre.TowerCurrentMana -= manaPenalization + GameManager.Round * manaPenalizationPerRound;
+                    if (Torre.TowerCurrentMana < 0)
+                        Torre.TowerCurrentMana = 0;
                 }
             }
 
@@ -95,6 +105,11 @@ public class SpellCircle : MonoBehaviour {
     }
 
     // Otros metodos privados
+
+    private void NotEnoughtMana()
+    {
+
+    }
 }
 
 public class SpellTree
