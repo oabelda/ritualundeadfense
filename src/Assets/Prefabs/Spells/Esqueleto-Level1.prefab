@@ -11,8 +11,8 @@ GameObject:
   - 114: {fileID: 11439602}
   - 212: {fileID: 21205856}
   m_Layer: 0
-  m_Name: Esqueleto
-  m_TagString: Untagged
+  m_Name: Esqueleto-Level1
+  m_TagString: Spell
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -90,6 +90,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: runes.Array.data[2]
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_TagString
+      value: Spell
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
