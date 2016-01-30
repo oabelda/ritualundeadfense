@@ -100,7 +100,7 @@ MonoBehaviour:
   Speed: 75
   AttackAnimationTime: 0
   DieAnimationTime: 3
-  Gold: 0
+  Gold: 1
   _projectile: {fileID: 161370, guid: dbafc0b2a1d3b6148aace8a53a327376, type: 2}
   _layerMask:
     serializedVersion: 2
@@ -208,6 +208,10 @@ Prefab:
       propertyPath: _projectile
       value: 
       objectReference: {fileID: 161370, guid: dbafc0b2a1d3b6148aace8a53a327376, type: 2}
+    - target: {fileID: 0}
+      propertyPath: Gold
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 186486}
