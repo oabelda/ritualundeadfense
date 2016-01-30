@@ -13,7 +13,7 @@ GameObject:
   - 95: {fileID: 9515058}
   - 114: {fileID: 11453030}
   m_Layer: 9
-  m_Name: Ally 1
+  m_Name: AllyMele
   m_TagString: Ally
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

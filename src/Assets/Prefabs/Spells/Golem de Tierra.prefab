@@ -11,7 +11,7 @@ GameObject:
   - 114: {fileID: 11476890}
   - 212: {fileID: 21255054}
   m_Layer: 0
-  m_Name: Spell (1)
+  m_Name: Golem de Tierra
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -37,10 +37,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 178328}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 524d80fcaea8bcc4296583c54b259e52, type: 3}
+  m_Script: {fileID: 11500000, guid: 328e44e4d84aa344fb1b021aa4d8263e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  runes: 010000000200000003000000
+  runes: 0100000002000000
+  goldCost: 5
 --- !u!212 &21255054
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -78,6 +79,10 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: runes.Array.size
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: runes.Array.data[0]
       value: 1

@@ -115,6 +115,7 @@ public class SpellTree
             }
         }
         actualNode.spellPrefab = spellPrefab;
+        Debug.Log("Spell Added");
     }
 
     public GameObject FindSpell(List<SpellRune.Rune> spell)
