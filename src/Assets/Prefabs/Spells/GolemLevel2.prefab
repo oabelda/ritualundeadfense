@@ -12,6 +12,7 @@ GameObject:
   - 61: {fileID: 6130588}
   - 95: {fileID: 9543938}
   - 114: {fileID: 11450840}
+  - 114: {fileID: 11490934}
   m_Layer: 9
   m_Name: GolemLevel2
   m_TagString: Ally
@@ -81,6 +82,23 @@ MonoBehaviour:
   m_LayerMask:
     serializedVersion: 2
     m_Bits: 256
+--- !u!114 &11490934
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 123596}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 328e44e4d84aa344fb1b021aa4d8263e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  runes: 
+  spellID: 0
+  goldCost: 10
+  manaCost: 20
+  minionPrefab: {fileID: 0}
+  _Yoffset: 0
 --- !u!212 &21226938
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -117,7 +135,15 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: goldCost
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: manaCost
+      value: 20
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 123596}

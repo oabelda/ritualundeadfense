@@ -45,7 +45,7 @@ GameObject:
   - 114: {fileID: 11428118}
   - 114: {fileID: 11472922}
   m_Layer: 5
-  m_Name: Button (2)
+  m_Name: Murcielago
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -394,7 +394,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &137766
 GameObject:
   m_ObjectHideFlags: 1
@@ -461,7 +461,7 @@ GameObject:
   - 114: {fileID: 11489842}
   - 114: {fileID: 11414134}
   m_Layer: 5
-  m_Name: Esqueleto
+  m_Name: Espiritu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1139,13 +1139,14 @@ GameObject:
   - 224: {fileID: 22488488}
   - 222: {fileID: 22246908}
   - 114: {fileID: 11412410}
+  - 114: {fileID: 11404588}
   m_Layer: 5
   m_Name: EndInformation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &194312
 GameObject:
   m_ObjectHideFlags: 1
@@ -1340,6 +1341,18 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "Poci\xF3n de Mana"
+--- !u!114 &11404588
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 190110}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b4d7bc43dbc67e488a007b639500699, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  image: {fileID: 21300000, guid: da6b818283a66db4cb7da6ba34bc6600, type: 3}
 --- !u!114 &11405154
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1467,7 +1480,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Runa 3
+  m_Text: Murcielago
 --- !u!114 &11408946
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1788,7 +1801,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Esqueleto
+          m_StringArgument: Espiritu
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
@@ -2170,7 +2183,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 11459532, guid: d730012afb145a547a4f1f773d3cb1c3, type: 2}
+        - m_Target: {fileID: 0}
           m_MethodName: registerMouse
           m_Mode: 1
           m_Arguments:
@@ -3243,7 +3256,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Esqueleto
+  m_Text: Espiritu
 --- !u!114 &11469588
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3397,7 +3410,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 11428118}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 11495246}
+        m_MethodName: LearnSpell
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Murcielago
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &11473434
@@ -3873,7 +3897,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Golem de Tierra
+          m_StringArgument: Golem
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
@@ -3977,6 +4001,7 @@ MonoBehaviour:
   _lifeRestored: 0.05
   _manaRestored: 0.05
   _spellList:
+  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   _gold: 100
@@ -4644,7 +4669,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 22474394}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 74, y: 22}
@@ -4759,7 +4784,7 @@ RectTransform:
   - {fileID: 22449514}
   - {fileID: 22478096}
   m_Father: {fileID: 22474394}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -5300,8 +5325,8 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 22498012}
-  - {fileID: 22425376}
   - {fileID: 22415856}
+  - {fileID: 22425376}
   - {fileID: 22424518}
   - {fileID: 22490172}
   - {fileID: 22480898}

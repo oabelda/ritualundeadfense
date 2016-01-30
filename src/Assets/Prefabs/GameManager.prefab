@@ -38,7 +38,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 165884}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 11.71, y: 0, z: 0}
+  m_LocalPosition: {x: 11.71, y: -1.25, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 450666}
@@ -70,14 +70,19 @@ MonoBehaviour:
   EnemiesFirstRound: 20
   IncreasedEnemiesPerRound: 3
   timeBetweenEnemies:
-    min: 2
-    max: 5
+    min: 0
+    max: 7
   timeBetweenRounds: 10
   spawnPoint: {fileID: 436460}
-  enemies: []
+  enemies:
+  - prefab: {fileID: 186486, guid: 73f1508b70c81af4886d953565acef75, type: 2}
+    minRound: 0
+    percentage: 50
+  - prefab: {fileID: 186486, guid: 1c7a5b0812638b34ebec171ab972aa88, type: 2}
+    minRound: 1
+    percentage: 50
   boses: []
   spellCircle: {fileID: 0}
-  image: {fileID: 21300000, guid: 6b59f5bb95860c14999c6a3cffa1000b, type: 3}
   endInformation: {fileID: 0}
 --- !u!1001 &100100000
 Prefab:

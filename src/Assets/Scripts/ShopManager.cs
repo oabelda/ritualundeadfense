@@ -69,18 +69,25 @@ public class ShopManager : MonoBehaviour
     {
         for (int i = 0; i < _spellList.Count; ++i)
         {
-            if (_spellList[i].name.Contains(spell))
+            if (_spellList[i] != null)
             {
-                if (_gold >= _spellList[i]._spells[0].GetComponent<Spell>().goldCost)
-                {// Debug.Log("call");)
-                    if (_spellList[i]._spells[0] != null)
+                if (_spellList[i].name.Contains(spell))
+                {
+                    if (_spellList[i]._spells[_spellList[i].level] != null)
                     {
-                        SpellCircle.LearnSpell(_spellList[i]._spells[_spellList[i].level++]);
-                        UpdateSpellIndication(i);
+                       
+                        if (_gold >= _spellList[i]._spells[_spellList[i].level].GetComponent<Spell>().goldCost)
+                        {
+                            if (_spellList[i]._spells[_spellList[i].level] != null)
+                            {
+                                SpellCircle.LearnSpell(_spellList[i]._spells[_spellList[i].level++]);
+                                UpdateSpellIndication(i);
+                            }
+                            else
+                                Debug.LogError("Error fatal");
+                            removeGold(_spellList[i]._spells[0].GetComponent<Spell>().goldCost);
+                        }
                     }
-                    else
-                        Debug.LogError("Error fatal");
-                    removeGold(_spellList[i]._spells[0].GetComponent<Spell>().goldCost);
                 }
             }
 
@@ -89,15 +96,21 @@ public class ShopManager : MonoBehaviour
 
     public void RestoreMana()
     {
-        GameObject.FindGameObjectWithTag("Torre").SendMessage("restoreMana", _manaRestored, SendMessageOptions.RequireReceiver);
-        removeGold(_goldMana);
+        if (_gold >= _goldMana)
+        {
+            GameObject.FindGameObjectWithTag("Torre").SendMessage("restoreMana", _manaRestored, SendMessageOptions.RequireReceiver);
+            removeGold(_goldMana);
+        }
 
     }
 
     public void RestoreLife()
     {
-        GameObject.FindGameObjectWithTag("Torre").SendMessage("repairTower", _lifeRestored,SendMessageOptions.RequireReceiver);
-        removeGold(_goldRepair);
+        if (_gold >= _goldRepair)
+        {
+            GameObject.FindGameObjectWithTag("Torre").SendMessage("repairTower", _lifeRestored, SendMessageOptions.RequireReceiver);
+            removeGold(_goldRepair);
+        }
     }
 
     //Actualiza el texto del dinero

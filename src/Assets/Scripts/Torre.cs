@@ -69,6 +69,8 @@ public class Torre : MonoBehaviour {
             _towerSprite.sprite = _healthyTower;
         else
             this.changeSprite();
+        if (TowerCurrentHP <= 0)
+            GameManager.finishGame();
         
     }
 

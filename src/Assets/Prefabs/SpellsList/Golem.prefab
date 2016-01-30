@@ -10,7 +10,7 @@ GameObject:
   - 4: {fileID: 492646}
   - 114: {fileID: 11408132}
   m_Layer: 0
-  m_Name: Golem de Tierra
+  m_Name: Golem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -41,8 +41,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   level: 0
   _spells:
-  - {fileID: 178328, guid: d679f7637be3e4349ba8c7455a8e96ea, type: 2}
-  - {fileID: 178328, guid: f5423341762dd324891a430222cc59ed, type: 2}
+  - {fileID: 165792, guid: e98bfd07967b0894bac874bd889d8da6, type: 2}
+  - {fileID: 123596, guid: a18c09e986bd18649bf315f3fb4ee22a, type: 2}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -57,11 +57,11 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: _spells.Array.data[0]
       value: 
-      objectReference: {fileID: 178328, guid: d679f7637be3e4349ba8c7455a8e96ea, type: 2}
+      objectReference: {fileID: 165792, guid: e98bfd07967b0894bac874bd889d8da6, type: 2}
     - target: {fileID: 0}
       propertyPath: _spells.Array.data[1]
       value: 
-      objectReference: {fileID: 178328, guid: f5423341762dd324891a430222cc59ed, type: 2}
+      objectReference: {fileID: 123596, guid: a18c09e986bd18649bf315f3fb4ee22a, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 199274}
