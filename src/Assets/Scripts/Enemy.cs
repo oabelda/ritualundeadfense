@@ -5,7 +5,9 @@ public class Enemy : MonoBehaviour {
     // Variables publicas
 
     public double InitialLife;
+    public double LifeIncrease;
     public float Damage;
+    public float DamageIncrease;
     public float AttackSpeed;
     public float RangeDistance;
     public float Speed;
@@ -15,11 +17,10 @@ public class Enemy : MonoBehaviour {
     public GameObject _projectile;
     public LayerMask _layerMask;
 
-
-
     // Variables privadas
 
     private double _life;
+    private float _damage;
     private float _lastAtackTime;
     private enum STATE { WALK=0, WALKING, ATTACK, ATTACKING, DIE, DYING }
     private enum TYPE { MEELE = 0, RANGE }
@@ -40,7 +41,8 @@ public class Enemy : MonoBehaviour {
     {
         _animator = GetComponent<Animator>();
         _rigidbody = GetComponent<Rigidbody2D>();
-        _life = InitialLife;
+        _life = InitialLife + GameManager.Round * LifeIncrease;
+        _damage = Damage + GameManager.Round * DamageIncrease;
         _lastAtackTime = 0f;
         _state = STATE.WALK;
         // If Melee, ignore the range
@@ -54,7 +56,8 @@ public class Enemy : MonoBehaviour {
 	void Update () {
         MainAction();
 
-        CheckForFrontAdversary();
+        if (_state != STATE.DIE)
+            CheckForFrontAdversary();
 
         
     }
@@ -105,11 +108,11 @@ public class Enemy : MonoBehaviour {
                     switch (_type)
                     {
                         case TYPE.MEELE:
-                            _adversary.SendMessage("HitEnemy", Damage);
+                            _adversary.SendMessage("HitEnemy", _damage);
                             break;
                         case TYPE.RANGE:
                             GameObject projectile = GameObject.Instantiate(_projectile, transform.position, _projectile.transform.rotation) as GameObject;
-                            projectile.GetComponent<ProjectileManager>().initParameters(Damage, Vector2.left, tag);
+                            projectile.GetComponent<ProjectileManager>().initParameters(_damage, Vector2.left, tag);
                             break;
                     }
                 }
@@ -119,10 +122,7 @@ public class Enemy : MonoBehaviour {
                 break;
             case STATE.DIE:
                 ShopManager.addGold(Gold);
-                _rigidbody.velocity = Vector2.zero;
-                _animator.SetInteger("State", 3);
-                StartCoroutine(Wait(DieAnimationTime));
-                Destroy(this.gameObject);
+                StartCoroutine(Die(DieAnimationTime));
                 break;
             case STATE.DYING:
                 break;
@@ -153,5 +153,16 @@ public class Enemy : MonoBehaviour {
     IEnumerator Wait(float time)
     {
         yield return new WaitForSeconds(time);
+    }
+
+    IEnumerator Die(float time)
+    {
+        _rigidbody.velocity = Vector2.zero;
+        _animator.SetInteger("State", 3);
+        foreach (Collider2D collider in GetComponentsInChildren<Collider2D>())
+            collider.enabled = false;
+        this.enabled = false;
+        yield return new WaitForSeconds(time);
+        Destroy(gameObject);
     }
 }
