@@ -55,9 +55,9 @@ public class Torre : MonoBehaviour {
 
     void Update()
     {
-        registerMouse();
+        _towerCooldownTimer += Time.deltaTime;
         TowerCurrentMana += manaRegen * Time.deltaTime;
-        TowerCurrentMana = (TowerCurrentMana<TowerMaxHP)? TowerCurrentMana : TowerMaxHP;
+        TowerCurrentMana = (TowerCurrentMana<TowerMaxMana)? TowerCurrentMana : TowerMaxMana;
     }
 
     // Función para registrar el daño que recibe la torre
@@ -120,22 +120,20 @@ public class Torre : MonoBehaviour {
         }
     }
 
-    void registerMouse()
+    public void registerMouse()
     {
+
         if (_towerCooldownTimer >= _towerCooldown)
         {
-
-            if (Input.GetMouseButtonDown(0))
-            {
                 Vector3 _throwPosition = transform.position + _projectileSpawnDeviation;
                 Vector3 _directionVector = Camera.main.ScreenToWorldPoint(Input.mousePosition) - _throwPosition;
 
                 GameObject newProjectile = Instantiate(projectile, _throwPosition, Quaternion.identity) as GameObject;
                 newProjectile.GetComponent<ProjectileManager>().initParameters(_towerDamage, _directionVector, this.gameObject.tag);
                 _towerCooldownTimer = 0.0f;
-            }
+
         }
-        _towerCooldownTimer += Time.deltaTime;
+       
     }
 
 
