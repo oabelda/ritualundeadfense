@@ -5,52 +5,30 @@ public class AllyRange : Ally
 {
     // Variables publicas
     public GameObject m_projectile;
+    public float RangeDistance;
+    public LayerMask m_LayerMask;
 
     // Variables privadas
-    List<GameObject> _enemys = new List<GameObject>();
 
     // Metodos Awake, Start, Update....
 
     // Update is called once per frame
     void Update()
     {
-        if (_enemys.Count != 0)
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.right, RangeDistance, m_LayerMask);
+        if (hit.collider != null)
         {
-            if (_enemys[0] == null)
-            {
-                _enemys.RemoveAt(0);
-            }
             _animator.SetBool("attack", true);
             if ((_attackTimer -= Time.deltaTime) <= 0)
             {
                 GameObject projectile = GameObject.Instantiate(m_projectile, transform.position, m_projectile.transform.rotation) as GameObject;
-                // @TODO: Gestionar la inicialización del proyectil
+                projectile.GetComponent<ProjectileManager>().initParameters(Damage,Vector2.right,tag);
                 _attackTimer = AttackSpeed;
             }
         }
         else
         {
             _animator.SetBool("attack", false);
-        }
-    }
-
-    // An enemy enters my attack area
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.CompareTag("Enemy"))
-        {
-            Debug.Log(other.gameObject.name + " : " + other);
-            if (!_enemys.Contains(other.gameObject))
-                _enemys.Add(other.gameObject);
-        }
-    }
-
-    // An enemy exits my attack area
-    void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("Enemy"))
-        {
-            _enemys.Remove(other.gameObject);
         }
     }
 }

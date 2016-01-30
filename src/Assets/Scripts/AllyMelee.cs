@@ -4,22 +4,23 @@ using System.Collections.Generic;
 public class AllyMelee : Ally
 {
 	// Variables publicas
+    public float RangeDistance;
+    public LayerMask m_LayerMask;
 
 	// Variables privadas
-    List<GameObject> _enemys = new List<GameObject>();
 
 	// Metodos Awake, Start, Update....
 
     // Update is called once per frame
     void Update()
     {
-        if (_enemys.Count != 0)
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.right, RangeDistance, m_LayerMask);
+        if (hit.collider != null)
         {
-            Debug.Log(_enemys.Count);
             _animator.SetBool("attack", true);
             if ((_attackTimer -= Time.deltaTime) <= 0)
             {
-                _enemys[0].SendMessage("HitEnemy",Damage);
+                hit.collider.gameObject.SendMessage("HitEnemy",Damage);
                 _attackTimer = AttackSpeed;
             }
         }
@@ -28,28 +29,6 @@ public class AllyMelee : Ally
             _animator.SetBool("attack", false);
         }
     }
-
-    // An enemy enters my attack area
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.CompareTag("Enemy"))
-        {
-            if (!_enemys.Contains(other.gameObject))
-                _enemys.Add(other.gameObject);
-        }
-    }
-
-    // An enemy exits my attack area
-    void OnTriggerExit2D(Collider2D other)
-    {
-        Debug.Log("Collision Exit");
-        if (other.CompareTag("Enemy"))
-        {
-            _enemys.Remove(other.gameObject);
-        }
-    }
-
-    
 
 	// Otros métodos publicos
 

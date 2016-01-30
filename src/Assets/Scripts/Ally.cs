@@ -4,7 +4,7 @@ using System.Collections;
 public class Ally : MonoBehaviour {
     // Variables publicas
     public double Life;
-    public double Damage;
+    public float Damage;
     public float AttackSpeed;
     public float SecondsOfDying;
 
@@ -19,6 +19,7 @@ public class Ally : MonoBehaviour {
 	// Use this for spawn this instance
 	void Awake(){
         _animator = GetComponent<Animator>();
+        _life = Life;
 	}
 
     // Otros métodos publicos
