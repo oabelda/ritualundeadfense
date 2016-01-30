@@ -16,6 +16,9 @@ public class Enemy : MonoBehaviour {
     public int Gold;
     public GameObject _projectile;
     public LayerMask _layerMask;
+    // Variables used to modify the range inside the given values
+    public float minVarRange;
+    public float maxVarRange;
 
     // Variables privadas
 
@@ -45,10 +48,15 @@ public class Enemy : MonoBehaviour {
         _damage = Damage + GameManager.Round * DamageIncrease;
         _lastAtackTime = 0f;
         _state = STATE.WALK;
+        // The range will be slightly different so they won't always stack in the same position
         // If Melee, ignore the range
         if (_type == TYPE.MEELE)
         {
-            RangeDistance = 0.01f;
+            RangeDistance = Random.Range(0.0f, 1.0f);
+        }
+        else
+        {
+            RangeDistance = RangeDistance + Random.Range(minVarRange, maxVarRange);
         }
     }
 

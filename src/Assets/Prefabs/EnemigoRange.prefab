@@ -105,6 +105,8 @@ MonoBehaviour:
   _layerMask:
     serializedVersion: 2
     m_Bits: 512
+  minVarRange: -0.5
+  maxVarRange: 0.5
   _type: 1
 --- !u!212 &21214976
 SpriteRenderer:
@@ -211,6 +213,14 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: Gold
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: minVarRange
+      value: -0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: maxVarRange
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
