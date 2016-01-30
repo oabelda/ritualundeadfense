@@ -179,7 +179,6 @@ public class GameManager : MonoBehaviour {
         color.a = 0;
         towerRender.color = color;
 
-        spellCircle.SetActive(true);
         endInformation.SetActive(true);
         for (int i = 0; i < _round; ++i)
         {

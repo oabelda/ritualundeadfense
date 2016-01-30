@@ -11,7 +11,6 @@ GameObject:
   - 212: {fileID: 21226938}
   - 61: {fileID: 6130588}
   - 95: {fileID: 9543938}
-  - 114: {fileID: 11450840}
   - 114: {fileID: 11490934}
   m_Layer: 9
   m_Name: GolemLevel2
@@ -63,25 +62,6 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &11450840
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 123596}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 50cd2b27c6d1cbd45ba3a37fb3ecedf8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Life: 75
-  Damage: 3
-  AttackSpeed: 3.5
-  SecondsOfDying: 1
-  RangeDistance: 1
-  m_LayerMask:
-    serializedVersion: 2
-    m_Bits: 256
 --- !u!114 &11490934
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -97,7 +77,7 @@ MonoBehaviour:
   spellID: 0
   goldCost: 10
   manaCost: 20
-  minionPrefab: {fileID: 0}
+  minionPrefab: {fileID: 198856, guid: b1418b00356adc3488ce1c675e62b374, type: 2}
   _Yoffset: 0
 --- !u!212 &21226938
 SpriteRenderer:
@@ -144,6 +124,10 @@ Prefab:
       propertyPath: manaCost
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: minionPrefab
+      value: 
+      objectReference: {fileID: 198856, guid: b1418b00356adc3488ce1c675e62b374, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 123596}
