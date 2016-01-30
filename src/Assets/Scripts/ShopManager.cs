@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class ShopManager : MonoBehaviour
 {
+
     //public Animator _shopAnimator;
     public Text _goldText;
     private bool _shopOpened = false;
@@ -21,6 +22,14 @@ public class ShopManager : MonoBehaviour
     public int _goldRepair = 5;
 
     static ShopManager instance = null;
+
+    [SerializeField]
+    private List<Image> _fila1;
+    [SerializeField]
+    private List<Image> _fila2;
+    [SerializeField]
+    private List<Image> _fila3;
+
 
     // Use this for spawn this instance
     void Awake()
@@ -63,9 +72,12 @@ public class ShopManager : MonoBehaviour
             if (_spellList[i].name.Contains(spell))
             {
                 if (_gold >= _spellList[i]._spells[0].GetComponent<Spell>().goldCost)
-                {
+                {// Debug.Log("call");)
                     if (_spellList[i]._spells[0] != null)
+                    {
                         SpellCircle.LearnSpell(_spellList[i]._spells[_spellList[i].level++]);
+                        UpdateSpellIndication(i);
+                    }
                     else
                         Debug.LogError("Error fatal");
                     removeGold(_spellList[i]._spells[0].GetComponent<Spell>().goldCost);
@@ -93,5 +105,33 @@ public class ShopManager : MonoBehaviour
     {
         _gold -= amount;
         _goldText.text = _gold.ToString();
+    }
+
+    void UpdateSpellIndication(int fila)
+    {
+        switch(fila)
+        {
+            case 0:
+                if (_spellList[fila].level == 1)
+                    _fila1[0].color = new Color(_fila1[0].color.r, _fila1[0].color.g, _fila1[0].color.b, 1);
+                _fila1[1].color = new Color(_fila1[1].color.r, _fila1[1].color.g, _fila1[1].color.b, 1);
+                if (_spellList[fila].level > 1)
+                    _fila1[_spellList[fila].level].color = new Color(_fila1[_spellList[fila].level].color.r, _fila1[_spellList[fila].level].color.g, _fila1[_spellList[fila].level].color.b, 1);
+                break;
+            case 1:
+                if (_spellList[fila].level == 1)
+                    _fila2[0].color = new Color(_fila2[0].color.r, _fila2[0].color.g, _fila2[0].color.b, 1);
+                _fila2[1].color = new Color(_fila2[1].color.r, _fila2[1].color.g, _fila2[1].color.b, 1);
+                if (_spellList[fila].level > 1)
+                    _fila2[_spellList[fila].level].color = new Color(_fila2[_spellList[fila].level].color.r, _fila2[_spellList[fila].level].color.g, _fila2[_spellList[fila].level].color.b, 1);
+                break;
+            case 2:
+                if (_spellList[fila].level == 1)
+                    _fila3[0].color = new Color(_fila3[0].color.r, _fila3[0].color.g, _fila3[0].color.b, 1);
+                _fila3[1].color = new Color(_fila3[1].color.r, _fila3[1].color.g, _fila3[1].color.b, 1);
+                if (_spellList[fila].level > 1)
+                    _fila3[_spellList[fila].level].color = new Color(_fila3[_spellList[fila].level].color.r, _fila3[_spellList[fila].level].color.g, _fila3[_spellList[fila].level].color.b, 1);
+                break;
+        }
     }
 }
