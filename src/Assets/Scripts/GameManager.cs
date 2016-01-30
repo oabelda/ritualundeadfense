@@ -192,9 +192,11 @@ public class GameManager : MonoBehaviour {
         {
             Destroy(activeSpell);
             activeSpell = newSpell;
-            activeSpell.GetComponent<SpriteRenderer>().transform.position = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width / 2, Screen.height / 2, 0));
+            activeSpell.transform.position = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width / 2, Screen.height / 2, 0));
         }
-        else
+        else { 
             activeSpell = newSpell;
+            activeSpell.transform.position = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width / 2, Screen.height / 2, 0));
+        }
     }
 }
