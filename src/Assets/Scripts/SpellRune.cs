@@ -28,16 +28,14 @@ public class SpellRune : MonoBehaviour {
 
     // Otros métodos publicos
 
-    public void Available(bool available)
+    public void Available()
     {
-        this.avialable = available;
-        if (!available)
-            Deactivate();
+        this.avialable = true;
     }
 
-    public void Activate()
+    public void Activate(bool byClick)
     {
-        if (avialable && !send)
+        if ((avialable || byClick) && !send)
         {
             Color c = m_sprite.color;
             c.a = SpellCircle.RUNE_ALPHA_ACTIVE;
