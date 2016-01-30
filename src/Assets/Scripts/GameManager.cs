@@ -40,7 +40,7 @@ public class GameManager : MonoBehaviour {
     static int _round = 0;
     bool _gameOver = false;
     int actualEnemies;
-
+    GameObject activeSpell;
 
 	// Metodos Awake, Start, Update....
 
@@ -185,5 +185,17 @@ public class GameManager : MonoBehaviour {
         {
             endInformation.SendMessage("fin", SendMessageOptions.RequireReceiver);
         }
+    }
+
+    public void changeActiveSpell(GameObject newSpell)
+    {
+        if (activeSpell != null)
+        {
+            Destroy(activeSpell);
+            activeSpell = newSpell;
+            activeSpell.GetComponent<SpriteRenderer>().transform.position = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width / 2, Screen.height / 2, 0));
+        }
+        else
+            activeSpell = newSpell;
     }
 }

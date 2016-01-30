@@ -11,12 +11,21 @@ public class Spell : MonoBehaviour
     public float _Yoffset;
     // Variables privadas
     //float duration = 5;
-
+    GameManager _gamemanager;
     // Metodos Awake, Start, Update....
-
+    void Awake()
+    {
+        _gamemanager = GameObject.FindWithTag("GameManager").GetComponent<GameManager>();
+    }
+    
+    void Start()
+    {
+        _gamemanager.changeActiveSpell(this.gameObject);
+    }
     // Update is called once per frame
     void Update()
     {
+        
         castSpell();
 
     }
@@ -25,9 +34,13 @@ public class Spell : MonoBehaviour
     {
         switch (gameObject.name.Replace("(Clone)",""))
         {
-            case "Esqueleto-Level1":
-            case "Esqueleto-Level2":
-                if (Input.GetMouseButtonDown(1))
+            case "EspirituLevel1":
+            case "EspirituLevel2":
+            case "GolemLevel1":
+            case "GolemLevel2":
+            case "MurcielagoLevel1":
+            case "MurcielagoLevel2":
+                if (Input.GetMouseButtonDown(0))
                 {
                     RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), new Vector3(0, -1, 0), Screen.height);
                     if (hit.collider != null)
