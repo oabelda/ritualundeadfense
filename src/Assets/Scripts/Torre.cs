@@ -33,17 +33,11 @@ public class Torre : MonoBehaviour {
             _towerSprite.sprite = _healthyTower; 
 	}
 
-    void FixedUpdate() // Testing
-    {
-        this.testDmgTower();
-
-    }
-
     // Función para registrar el daño que recibe la torre
-    public void damageTower(double damageReceived)
+    public void HitEnemy(double damageReceived)
     {
         _towerCurrentHP -= damageReceived;
-
+        Debug.Log("Damage received, current HP: " + _towerCurrentHP);
         if (_towerCurrentHP > (_towerMaxHP * sprites[sprites.Length - 1].life) && _towerSprite.sprite != _healthyTower)
             _towerSprite.sprite = _healthyTower;
         else
@@ -81,19 +75,6 @@ public class Torre : MonoBehaviour {
         }
     }
 
-    void testDmgTower()
-    {
-        if (Input.GetKeyDown(KeyCode.LeftArrow))
-        {
-            damageTower(10);
-            Debug.Log("Tower damaged by 10, current HP: " + _towerCurrentHP);
-        }
 
-        if (Input.GetKeyDown(KeyCode.RightArrow))
-        {
-            repairTower(10);
-            Debug.Log("Tower repaired by 10, current HP: " + _towerCurrentHP);
-        }
-    }
 
 }

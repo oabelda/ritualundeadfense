@@ -9,8 +9,9 @@ GameObject:
   m_Component:
   - 4: {fileID: 479482}
   - 212: {fileID: 21257624}
-  - 114: {fileID: 11439662}
   - 61: {fileID: 6109720}
+  - 114: {fileID: 11459532}
+  - 50: {fileID: 5071702}
   m_Layer: 0
   m_Name: Torre
   m_TagString: Torre
@@ -30,6 +31,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!50 &5071702
+Rigidbody2D:
+  serializedVersion: 2
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 179190}
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!61 &6109720
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -44,7 +62,7 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
---- !u!114 &11439662
+--- !u!114 &11459532
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -100,7 +118,47 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: sprites.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: _towerMaxHP
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: _healthyTower
+      value: 
+      objectReference: {fileID: 21300000, guid: a6e07a43f0415d84c973db32496da98d,
+        type: 3}
+    - target: {fileID: 0}
+      propertyPath: sprites.Array.data[2].m_sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 556e5df8dfea60e4fac41ed1be3b6c3d,
+        type: 3}
+    - target: {fileID: 0}
+      propertyPath: sprites.Array.data[1].m_sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: a6e07a43f0415d84c973db32496da98d,
+        type: 3}
+    - target: {fileID: 0}
+      propertyPath: sprites.Array.data[0].m_sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 556e5df8dfea60e4fac41ed1be3b6c3d,
+        type: 3}
+    - target: {fileID: 0}
+      propertyPath: sprites.Array.data[2].life
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: sprites.Array.data[1].life
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: sprites.Array.data[0].life
+      value: 0.1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 179190}
