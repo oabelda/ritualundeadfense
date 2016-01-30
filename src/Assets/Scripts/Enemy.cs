@@ -11,7 +11,9 @@ public class Enemy : MonoBehaviour {
     public float Speed;
     public float AttackAnimationTime;
     public float DieAnimationTime;
-    public GameObject projectile;
+    public int Gold;
+    public GameObject _projectile;
+    public LayerMask _layerMask;
 
 
 
@@ -41,46 +43,22 @@ public class Enemy : MonoBehaviour {
         _life = InitialLife;
         _lastAtackTime = 0f;
         _state = STATE.WALK;
+        // If Melee, ignore the range
+        if (_type == TYPE.MEELE)
+        {
+            RangeDistance = 0.01f;
+        }
     }
 
 	// Update is called once per frame
 	void Update () {
         MainAction();
 
-        if (_type == TYPE.RANGE)
         CheckForFrontAdversary();
 
         
     }
-
-    //Stop Walking On TriggerEnter
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        if(_type==TYPE.MEELE)
-        {
-            if (other.CompareTag("Torre") || other.CompareTag("Ally"))
-            {
-                _adversary = other.gameObject;
-                _state = STATE.ATTACK;
-            }
-        }
-    }
-
-    //Go on Walking On TriggerExit
-    void OnTriggerExit2D(Collider2D other)
-    {
-        if (_type == TYPE.MEELE)
-        {
-            if (other.CompareTag("Torre") || other.CompareTag("Ally"))
-            {
-                _adversary = null;
-                _state = STATE.WALK;
-            }
-        }
-    }
-
-
-
+    
     // Otros métodos publicos
 
     //Function for making the enemy suffer damage
@@ -95,8 +73,6 @@ public class Enemy : MonoBehaviour {
     }
 
 
-
-
 	// Otros metodos privados
 
     //Enemy Main Action
@@ -106,7 +82,7 @@ public class Enemy : MonoBehaviour {
         {
             case STATE.WALK:
                 _animator.SetInteger("State", 1);
-                _rigidbody.velocity = new Vector2(Speed, 0) * Time.deltaTime;
+                _rigidbody.velocity = new Vector2(-1 * Speed, 0) * Time.deltaTime;
                 _state = STATE.WALKING;
                 break;
             case STATE.WALKING:
@@ -123,7 +99,7 @@ public class Enemy : MonoBehaviour {
                 {
                     _state = STATE.WALK;
                 }
-                else if (_adversary.CompareTag("Torre") || _adversary.CompareTag("Ally"))
+                else
                 {
                     _animator.SetInteger("State", 2);
                     switch (_type)
@@ -132,9 +108,8 @@ public class Enemy : MonoBehaviour {
                             _adversary.SendMessage("HitEnemy", Damage);
                             break;
                         case TYPE.RANGE:
-                            //Shoot proyectile   //**ATACAR LANZAR PROYECTIL WHAT EVER (PASAR DAMAGE COMO PARAMETRO);
-                            newProyectile = Instantiate(projectile, transform.position + Vector3.left, Quaternion.identity) as GameObject;
-                            newProyectile.GetComponent<ProjectileManager>().initParameters(Damage,Vector2.left,this.gameObject.tag);
+                            GameObject projectile = GameObject.Instantiate(_projectile, transform.position, _projectile.transform.rotation) as GameObject;
+                            projectile.GetComponent<ProjectileManager>().initParameters(Damage, Vector2.left, tag);
                             break;
                     }
                 }
@@ -143,6 +118,7 @@ public class Enemy : MonoBehaviour {
                 _state = STATE.ATTACK;
                 break;
             case STATE.DIE:
+                ShopManager.addGold(Gold);
                 _rigidbody.velocity = Vector2.zero;
                 _animator.SetInteger("State", 3);
                 StartCoroutine(Wait(DieAnimationTime));
@@ -157,22 +133,13 @@ public class Enemy : MonoBehaviour {
 
     private void CheckForFrontAdversary()
     {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position + new Vector3(-1f,0,0), Vector2.left, RangeDistance);
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.left, RangeDistance, _layerMask);
         if (hit.collider != null)
         {
-            //Debug.Log("Colision detectada "+ hit.collider.gameObject.name);
             if (_state != STATE.ATTACKING)
             {
-                if (hit.collider.CompareTag("Torre") || hit.collider.CompareTag("Ally"))
-                {
-                    _adversary = hit.collider.gameObject;
-                    _state = STATE.ATTACK;
-                }
-                else
-                {
-                    _adversary = null;
-                    _state = STATE.WALK;
-                }
+                _adversary = hit.collider.gameObject;
+                _state = STATE.ATTACK;
             }
         }
         else
