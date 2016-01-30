@@ -18,6 +18,8 @@ obj/
 *.user
 *.unityproj
 *.booproj
+Src/Assets/*.meta
+*.meta
 
 # ============ #
 # OS generated #
