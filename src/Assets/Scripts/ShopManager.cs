@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class ShopManager : MonoBehaviour
 {
-    public Animator _shopAnimator;
+    //public Animator _shopAnimator;
     public Text _goldText;
     private bool _shopOpened = false;
 
@@ -14,9 +14,11 @@ public class ShopManager : MonoBehaviour
     [Range(0.0f, 1.0f)]
     public float _manaRestored = 0.05f;
 
-    public List<GameObject> _spells = new List<GameObject>();
+    public List<SpellsList> _spellList;
 
     public int _gold = 100;
+    public int _goldMana = 5;
+    public int _goldRepair = 5;
 
     static ShopManager instance = null;
 
@@ -34,19 +36,19 @@ public class ShopManager : MonoBehaviour
         _goldText.text = _gold.ToString();
     }
 
-    public void shopButton()
-    {
-        if (_shopOpened)
-        {
-            _shopAnimator.SetTrigger("Ocultar");
-            _shopOpened = false;
-        }
-        else
-        {
-            _shopAnimator.SetTrigger("Mostrar");
-            _shopOpened = true;
-        }
-    }
+    //public void shopButton()
+    //{
+    //    if (_shopOpened)
+    //    {
+    //        _shopAnimator.SetTrigger("Ocultar");
+    //        _shopOpened = false;
+    //    }
+    //    else
+    //    {
+    //        _shopAnimator.SetTrigger("Mostrar");
+    //        _shopOpened = true;
+    //    }
+    //}
 
     public static void addGold(int amount)
     {
@@ -54,33 +56,42 @@ public class ShopManager : MonoBehaviour
         instance._goldText.text = instance._gold.ToString();
     }
 
-    public void LearnSpell(GameObject spell)
+    public void LearnSpell(string spell)
     {
-        if (_gold >= spell.GetComponent<Spell>().goldCost)
+        for (int i = 0; i < _spellList.Count; ++i)
         {
-            for (int i = 0; i < _spells.Count; ++i )
+            if (_spellList[i].name.Contains(spell))
             {
-                if (_spells[i].name == spell.name)
+                if (_gold >= _spellList[i]._spells[0].GetComponent<Spell>().goldCost)
                 {
-                    SpellCircle.LearnSpell(spell);
-                    _gold -= spell.GetComponent<Spell>().goldCost;
-                    _goldText.text = _gold.ToString();
-                    _spells.Remove(_spells[i]);
+                    if (_spellList[i]._spells[0] != null)
+                        SpellCircle.LearnSpell(_spellList[i]._spells[_spellList[i].level++]);
+                    else
+                        Debug.LogError("Error fatal");
+                    removeGold(_spellList[i]._spells[0].GetComponent<Spell>().goldCost);
                 }
             }
-            
+
         }
     }
 
     public void RestoreMana()
     {
         GameObject.FindGameObjectWithTag("Torre").SendMessage("restoreMana", _manaRestored, SendMessageOptions.RequireReceiver);
+        removeGold(_goldMana);
+
     }
 
     public void RestoreLife()
     {
         GameObject.FindGameObjectWithTag("Torre").SendMessage("repairTower", _lifeRestored,SendMessageOptions.RequireReceiver);
+        removeGold(_goldRepair);
     }
 
-
+    //Actualiza el texto del dinero
+    void removeGold(int amount)
+    {
+        _gold -= amount;
+        _goldText.text = _gold.ToString();
+    }
 }

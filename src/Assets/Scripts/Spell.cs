@@ -5,6 +5,7 @@ public class Spell : MonoBehaviour {
     public SpellRune.Rune[] runes;
 
     public int goldCost = 5;
+    public int manaCost = 10;
 
 	// Variables privadas
     float duration = 5;

@@ -11,7 +11,7 @@ GameObject:
   - 114: {fileID: 11476890}
   - 212: {fileID: 21255054}
   m_Layer: 0
-  m_Name: Golem de Tierra
+  m_Name: Golem de Tierra-Level1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -40,8 +40,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 328e44e4d84aa344fb1b021aa4d8263e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  runes: 0100000002000000
+  runes: 0200000003000000
   goldCost: 5
+  manaCost: 15
 --- !u!212 &21255054
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -85,11 +86,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: runes.Array.data[0]
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: runes.Array.data[1]
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: runes.Array.data[2]
@@ -110,6 +111,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_LocalScale.y
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: manaCost
+      value: 15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

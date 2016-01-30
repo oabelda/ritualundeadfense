@@ -40,7 +40,7 @@ public class SpellCircle : MonoBehaviour {
             
             // Buscar el hechizo
             GameObject spellPrefab = _grimorium.FindSpell(_spell);
-
+            Debug.Log(spellPrefab);
             // Hacer la magia
             if (spellPrefab != null)
                 GameObject.Instantiate(spellPrefab);
@@ -96,11 +96,13 @@ public class SpellTree
 
     public void AddSpell(GameObject spellPrefab)
     {
+        Debug.Log(spellPrefab);
         var runes = spellPrefab.GetComponent<Spell>().runes;
 
         Nodo actualNode = raiz;
         foreach (SpellRune.Rune rune in runes)
         {
+            Debug.Log(rune);
             Nodo nextNode;
             if (actualNode.nextRunes.TryGetValue(rune,out nextNode))
             {
@@ -115,7 +117,7 @@ public class SpellTree
             }
         }
         actualNode.spellPrefab = spellPrefab;
-        Debug.Log("Spell Added");
+        Debug.Log(actualNode.spellPrefab);
     }
 
     public GameObject FindSpell(List<SpellRune.Rune> spell)
