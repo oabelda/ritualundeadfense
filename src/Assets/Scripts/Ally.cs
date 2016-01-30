@@ -41,6 +41,7 @@ public class Ally : MonoBehaviour {
         _animator.SetTrigger("Die");
         foreach (Collider2D collider in GetComponentsInChildren<Collider2D>())
             collider.enabled = false;
+        this.enabled = false;
         yield return new WaitForSeconds(SecondsOfDying);
         Destroy(gameObject);
     } 
