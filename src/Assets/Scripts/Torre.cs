@@ -7,10 +7,6 @@ using System.Collections;
 public class Torre : MonoBehaviour {
     [Header("Tower Properties")]
     [SerializeField]
-    double _towerMaxHP = 100;
-    [SerializeField]
-    double _towerMaxMana = 100;
-    [SerializeField]
     float _towerDamage;
     [SerializeField]
     float _towerCooldown;
@@ -33,16 +29,22 @@ public class Torre : MonoBehaviour {
     Sprite _healthyTower;
     [SerializeField]
     double manaRegen = 1;
+
+
+    public double TowerMaxHP = 100;
+    public double TowerMaxMana = 100;
+    public double TowerCurrentHP;
+    public double TowerCurrentMana;
+
     public GameObject projectile;
     public Vector3 _projectileSpawnDeviation;
+    
 
-    private double _towerCurrentHP;
-    private double _towerCurrentMana;
     private SpriteRenderer _towerSprite;
     private float _towerCooldownTimer;
     // Use this for initialization
     void Start () {
-        _towerCurrentHP = _towerMaxHP;
+        TowerCurrentHP = TowerMaxHP;
         _towerSprite = GetComponent<SpriteRenderer>();
         if (_towerSprite.sprite == null)
             _towerSprite.sprite = _healthyTower;
@@ -54,15 +56,15 @@ public class Torre : MonoBehaviour {
     void Update()
     {
         registerMouse();
-        _towerCurrentMana += manaRegen * Time.deltaTime;
-        _towerCurrentMana = (_towerCurrentMana<_towerMaxHP)? _towerCurrentMana : _towerMaxHP;
+        TowerCurrentMana += manaRegen * Time.deltaTime;
+        TowerCurrentMana = (TowerCurrentMana<TowerMaxHP)? TowerCurrentMana : TowerMaxHP;
     }
 
     // Función para registrar el daño que recibe la torre
     public void HitEnemy(double damageReceived)
     {
-        _towerCurrentHP -= damageReceived;
-        if (_towerCurrentHP > (_towerMaxHP * sprites[sprites.Length - 1].life) && _towerSprite.sprite != _healthyTower)
+        TowerCurrentHP -= damageReceived;
+        if (TowerCurrentHP > (TowerMaxHP * sprites[sprites.Length - 1].life) && _towerSprite.sprite != _healthyTower)
             _towerSprite.sprite = _healthyTower;
         else
             this.changeSprite();
@@ -73,15 +75,15 @@ public class Torre : MonoBehaviour {
     // Función para registrar las reparaciones que hace el jugador a la torre
     public void repairTower(float percentage)
     {
-        double repairAmount = _towerMaxHP * percentage;
-        if (_towerCurrentHP < _towerMaxHP) // Solo se repara si la vida actual es menor que la vida máxima
+        double repairAmount = TowerMaxHP * percentage;
+        if (TowerCurrentHP < TowerMaxHP) // Solo se repara si la vida actual es menor que la vida máxima
         {
-            _towerCurrentHP += repairAmount;
+            TowerCurrentHP += repairAmount;
 
-            if (_towerCurrentHP > _towerMaxHP) // Si la reparación pone la vida por encima de la vida máxima, se iguala con la vida máxima
-                _towerCurrentHP = _towerMaxHP;
+            if (TowerCurrentHP > TowerMaxHP) // Si la reparación pone la vida por encima de la vida máxima, se iguala con la vida máxima
+                TowerCurrentHP = TowerMaxHP;
 
-            if (_towerCurrentHP > (_towerMaxHP * sprites[sprites.Length - 1].life) && _towerSprite.sprite != _healthyTower)
+            if (TowerCurrentHP > (TowerMaxHP * sprites[sprites.Length - 1].life) && _towerSprite.sprite != _healthyTower)
                 _towerSprite.sprite = _healthyTower;
             else
                 this.changeSprite();
@@ -90,27 +92,27 @@ public class Torre : MonoBehaviour {
 
     public void restoreMana(float percentage)
     {
-        double restoredMana = _towerMaxMana * percentage;
-        if (_towerCurrentMana < _towerMaxMana) // Solo se repara si la vida actual es menor que la vida máxima
+        double restoredMana = TowerMaxMana * percentage;
+        if (TowerCurrentMana < TowerMaxMana) // Solo se repara si la vida actual es menor que la vida máxima
         {
-            _towerCurrentMana += restoredMana;
+            TowerCurrentMana += restoredMana;
 
-            if (_towerCurrentMana > _towerMaxMana) // Si la reparación pone la vida por encima de la vida máxima, se iguala con la vida máxima
-                _towerCurrentMana = _towerMaxMana;
+            if (TowerCurrentMana > TowerMaxMana) // Si la reparación pone la vida por encima de la vida máxima, se iguala con la vida máxima
+                TowerCurrentMana = TowerMaxMana;
         }
     }
 
     void OnRoundChange()
     {
-        _towerMaxHP += _hpPerLevel;
-        _towerMaxMana += _manaPerLevel;
+        TowerMaxHP += _hpPerLevel;
+        TowerMaxMana += _manaPerLevel;
     }
 
     void changeSprite()
     {
         for (int i = 0; i < sprites.Length; i++)
         {
-            if (_towerCurrentHP <= (_towerMaxHP * sprites[i].life))
+            if (TowerCurrentHP <= (TowerMaxHP * sprites[i].life))
             {
                 _towerSprite.sprite = sprites[i].m_sprite;
                 break;
