@@ -14,18 +14,6 @@ public class Spell : MonoBehaviour
 
     // Metodos Awake, Start, Update....
 
-    // Use this for spawn this instance
-    void Awake()
-    {
-
-    }
-
-    // Use this for initialization
-    void Start()
-    {
-
-    }
-
     // Update is called once per frame
     void Update()
     {
@@ -35,7 +23,6 @@ public class Spell : MonoBehaviour
     // Otros métodos publicos
     void castSpell()
     {
-        Debug.Log(gameObject.name);
         switch (gameObject.name.Replace("(Clone)",""))
         {
             case "Esqueleto-Level1":

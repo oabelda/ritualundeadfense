@@ -43,7 +43,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -97,14 +97,14 @@ MonoBehaviour:
   DamageIncrease: 0
   AttackSpeed: 1
   RangeDistance: 10
-  Speed: 1
+  Speed: 75
   AttackAnimationTime: 0
   DieAnimationTime: 3
   Gold: 0
-  _projectile: {fileID: 0}
+  _projectile: {fileID: 161370, guid: dbafc0b2a1d3b6148aace8a53a327376, type: 2}
   _layerMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 512
   _type: 1
 --- !u!212 &21214976
 SpriteRenderer:
@@ -174,7 +174,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: Speed
-      value: 1
+      value: 75
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: DieAnimationTime
@@ -196,6 +196,18 @@ Prefab:
       propertyPath: m_TagString
       value: Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_GravityScale
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: _layerMask.m_Bits
+      value: 512
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: _projectile
+      value: 
+      objectReference: {fileID: 161370, guid: dbafc0b2a1d3b6148aace8a53a327376, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 186486}

@@ -81,7 +81,7 @@ MonoBehaviour:
   RangeDistance: 10
   m_LayerMask:
     serializedVersion: 2
-    m_Bits: 768
+    m_Bits: 256
 --- !u!212 &21296548
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -129,7 +129,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_LayerMask.m_Bits
-      value: 768
+      value: 256
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: RangeDistance

@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using System.Collections;
-using UnityEngine.UI;
 
 public delegate void StandartEvent();
 
@@ -30,9 +29,6 @@ public class GameManager : MonoBehaviour {
     public Transform spawnPoint;
     public enemyspawners[] enemies;
     public enemyspawners[] boses;
-    public GameObject spellCircle;
-    public Sprite image;
-    public GameObject endInformation;
 
     public static StandartEvent OnRoundChange;
 
@@ -40,7 +36,6 @@ public class GameManager : MonoBehaviour {
     static GameManager instance = null;
     static int _round = 0;
     bool _gameOver = false;
-    bool _coroutineEntered = false;
     int actualEnemies;
 
 
@@ -58,7 +53,7 @@ public class GameManager : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         actualEnemies = EnemiesFirstRound;
-        //StartCoroutine(rounds());
+        StartCoroutine(rounds());
 	}
 
 	// Otros métodos publicos
@@ -79,7 +74,7 @@ public class GameManager : MonoBehaviour {
                     int rand = Random.Range(0, 100);
                     for (int j = 0; j < enemies.Length; ++j)
                     {
-                        if ((rand -= enemies[j].percentage) <= 0 && enemies[j].minRound >= _round)
+                        if ((rand -= enemies[j].percentage) <= 0 && enemies[j].minRound <= _round)
                         {
                             enemy = enemies[j].prefab;
                         }
@@ -115,77 +110,4 @@ public class GameManager : MonoBehaviour {
             yield return new WaitForSeconds(timeBetweenRounds);
         }
     }
-
-    //Termina el juego y salen los resultados
-    public void finishGame()
-    {
-        //Tiene que parpadear el castillo 3 veces cambiando el alpha
-        //Luego sale el nuemero de rondas que has conseguido superar
-        //Impedimos que salgan mas enemigos
-        _gameOver = true;
-        //Paramos el movimiento o las acciones de los enemigos e impedimos lanzar proyectiles o el uso del SpellCircle
-        //Cojo el render del gameObject Torre
-        SpriteRenderer towerRender = GameObject.FindGameObjectWithTag("Torre").GetComponent<SpriteRenderer>();
-        //Llamo a la corutina donde se realiza el parpadeo de la torre
-        StartCoroutine(Fade(towerRender));
-        StartCoroutine(Fade2(towerRender));
-    }
-
-    IEnumerator Fade(SpriteRenderer towerRender)
-    {
-        spellCircle.SetActive(false);
-        //Hago una animación fluida del parpadeo
-        //Se desvanece
-        Color color = towerRender.color;
-        for(int j = 0; j < 3; ++j)
-        {
-            for (int i = 0; i < 5; ++i )
-            {
-                color.a *= 0.65f;
-                towerRender.color = color;
-                yield return new WaitForSeconds(0.10f);
-            }
-            //Aparece
-            for (int i = 0; i < 5; ++i)
-            {
-                color.a /= 0.65f;
-                towerRender.color = color;
-                yield return new WaitForSeconds(0.05f);
-            }
-        }
-    }
-
-    IEnumerator Fade2(SpriteRenderer towerRender)
-    {
-        yield return new WaitForSeconds(0.3f);
-        //Hago una animación fluida del parpadeo
-        //Se desvanece
-        Color color = towerRender.color;
-        for (int j = 0; j < 3; ++j)
-        {
-            for (int i = 0; i < 5; ++i)
-            {
-                color.a *= 0.65f;
-                towerRender.color = color;
-                yield return new WaitForSeconds(0.10f);
-            }
-            //Aparece
-            for (int i = 0; i < 5; ++i)
-            {
-                color.a /= 0.65f;
-                towerRender.color = color;
-                yield return new WaitForSeconds(0.05f);
-            }
-        }
-        color.a = 0;
-        towerRender.color = color;
-
-        spellCircle.SetActive(true);
-        for(int i = 0; i < _round; ++i)
-        {
-            endInformation.SendMessage("fin", SendMessageOptions.RequireReceiver);
-        }
-    }
-
-    
 }

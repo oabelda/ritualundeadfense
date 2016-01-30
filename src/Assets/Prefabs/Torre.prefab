@@ -55,10 +55,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33f34449af630ca48ad39de6f5c9e133, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _towerMaxHP: 100
-  _towerMaxMana: 100
-  _towerDamage: 0
-  _towerCooldown: 0
+  _towerDamage: 2
+  _towerCooldown: 0.5
+  _hpPerLevel: 10
+  _manaPerLevel: 5
   sprites:
   - m_sprite: {fileID: 21300000, guid: 556e5df8dfea60e4fac41ed1be3b6c3d, type: 3}
     life: 0.1
@@ -67,8 +67,13 @@ MonoBehaviour:
   - m_sprite: {fileID: 21300000, guid: 556e5df8dfea60e4fac41ed1be3b6c3d, type: 3}
     life: 0.5
   _healthyTower: {fileID: 21300000, guid: a6e07a43f0415d84c973db32496da98d, type: 3}
+  manaRegen: 3
+  TowerMaxHP: 100
+  TowerMaxMana: 50
+  TowerCurrentHP: 0
+  TowerCurrentMana: 0
   projectile: {fileID: 129516, guid: 676d137534805ee4c94052a5b869bd17, type: 2}
-  _projectileSpawnDeviation: {x: 0, y: 0, z: 0}
+  _projectileSpawnDeviation: {x: 0, y: 0.5, z: 0}
 --- !u!212 &21257624
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -95,7 +100,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: a6e07a43f0415d84c973db32496da98d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
   m_FlipY: 0
@@ -154,6 +159,39 @@ Prefab:
       propertyPath: projectile
       value: 
       objectReference: {fileID: 129516, guid: 676d137534805ee4c94052a5b869bd17, type: 2}
+    - target: {fileID: 0}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: a6e07a43f0415d84c973db32496da98d,
+        type: 3}
+    - target: {fileID: 0}
+      propertyPath: _towerDamage
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: _towerCooldown
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: _hpPerLevel
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: _manaPerLevel
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: TowerMaxMana
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: manaRegen
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: _projectileSpawnDeviation.y
+      value: 0.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 179190}
