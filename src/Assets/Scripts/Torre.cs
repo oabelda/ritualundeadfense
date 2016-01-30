@@ -45,6 +45,7 @@ public class Torre : MonoBehaviour {
     // Use this for initialization
     void Start () {
         TowerCurrentHP = TowerMaxHP;
+        TowerCurrentMana = TowerMaxMana;
         _towerSprite = GetComponent<SpriteRenderer>();
         if (_towerSprite.sprite == null)
             _towerSprite.sprite = _healthyTower;
