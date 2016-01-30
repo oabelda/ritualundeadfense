@@ -6,6 +6,8 @@ public class SpellCircle : MonoBehaviour {
     // Constantes públicas
     public const float RUNE_ALPHA_ACTIVE = 1f;
     public const float RUNE_ALPHA_UNACTIVE = 0.5f;
+    public int manaPenalization = 20;
+    public int manaPenalizationPerRound = 5;
 
     // Variables publicas
 
@@ -13,6 +15,8 @@ public class SpellCircle : MonoBehaviour {
     static SpellCircle instance = null;
     List<SpellRune.Rune> _spell = new List<SpellRune.Rune>();
     SpellTree _grimorium = new SpellTree();
+    [SerializeField]
+    private Torre Torre;
 
     // Metodos Awake, Start, Update....
 
@@ -43,7 +47,17 @@ public class SpellCircle : MonoBehaviour {
             Debug.Log(spellPrefab);
             // Hacer la magia
             if (spellPrefab != null)
+            {
+                Torre.TowerCurrentMana -= spellPrefab.GetComponent<Spell>().manaCost;
                 GameObject.Instantiate(spellPrefab);
+            }
+            else
+            {
+                if(_spell.Count>0)
+                {
+                    Torre.TowerCurrentMana -= manaPenalization + GameManager.Round * manaPenalizationPerRound;
+                }
+            }
 
             // Desactivar el círculo de los conjuros
             _spell.Clear();

@@ -4057,6 +4057,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e93ce32ca8bc2640a16d26da79644cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manaPenalization: 20
+  manaPenalizationPerRound: 5
+  Torre: {fileID: 0}
 --- !u!114 &11499724
 MonoBehaviour:
   m_ObjectHideFlags: 1
