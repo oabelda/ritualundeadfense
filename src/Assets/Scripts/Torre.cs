@@ -54,7 +54,7 @@ public class Torre : MonoBehaviour {
     void Update()
     {
         registerMouse();
-        _towerCurrentMana += manaRegen;
+        _towerCurrentMana += manaRegen * Time.deltaTime;
         _towerCurrentMana = (_towerCurrentMana<_towerMaxHP)? _towerCurrentMana : _towerMaxHP;
     }
 
