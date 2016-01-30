@@ -11,8 +11,7 @@ GameObject:
   - 212: {fileID: 21257624}
   - 61: {fileID: 6109720}
   - 114: {fileID: 11459532}
-  - 50: {fileID: 5071702}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Torre
   m_TagString: Torre
   m_Icon: {fileID: 0}
@@ -31,23 +30,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!50 &5071702
-Rigidbody2D:
-  serializedVersion: 2
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 179190}
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!61 &6109720
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -74,6 +56,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _towerMaxHP: 100
+  _towerMaxMana: 100
+  _towerDamage: 0
+  _towerCooldown: 0
   sprites:
   - m_sprite: {fileID: 21300000, guid: 556e5df8dfea60e4fac41ed1be3b6c3d, type: 3}
     life: 0.1
@@ -82,6 +67,8 @@ MonoBehaviour:
   - m_sprite: {fileID: 21300000, guid: 556e5df8dfea60e4fac41ed1be3b6c3d, type: 3}
     life: 0.5
   _healthyTower: {fileID: 21300000, guid: a6e07a43f0415d84c973db32496da98d, type: 3}
+  projectile: {fileID: 129516, guid: 676d137534805ee4c94052a5b869bd17, type: 2}
+  _projectileSpawnDeviation: {x: 0, y: 0, z: 0}
 --- !u!212 &21257624
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -159,6 +146,14 @@ Prefab:
       propertyPath: sprites.Array.data[0].life
       value: 0.1
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: projectile
+      value: 
+      objectReference: {fileID: 129516, guid: 676d137534805ee4c94052a5b869bd17, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 179190}
