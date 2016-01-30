@@ -7,7 +7,9 @@ using System.Collections;
 public class Torre : MonoBehaviour {
     [Header("Tower Properties")]
     [SerializeField]
-    double _towerMaxHP;
+    double _towerMaxHP = 100;
+    [SerializeField]
+    double _towerMaxMana = 100;
     [SerializeField]
     float _towerDamage;
     [SerializeField]
@@ -28,6 +30,7 @@ public class Torre : MonoBehaviour {
     public Vector3 _projectileSpawnDeviation;
 
     private double _towerCurrentHP;
+    private double _towerCurrentMana;
     private SpriteRenderer _towerSprite;
     private float _towerCooldownTimer;
     // Use this for initialization
@@ -58,8 +61,9 @@ public class Torre : MonoBehaviour {
 
 
     // Función para registrar las reparaciones que hace el jugador a la torre
-    public void repairTower(double repairAmount)
+    public void repairTower(float percentage)
     {
+        double repairAmount = _towerMaxHP * percentage;
         if (_towerCurrentHP < _towerMaxHP) // Solo se repara si la vida actual es menor que la vida máxima
         {
             _towerCurrentHP += repairAmount;
@@ -72,6 +76,20 @@ public class Torre : MonoBehaviour {
             else
                 this.changeSprite();
         }
+        Debug.Log("Life Restored");
+    }
+
+    public void restoreMana(float percentage)
+    {
+        double restoredMana = _towerMaxMana * percentage;
+        if (_towerCurrentMana < _towerMaxMana) // Solo se repara si la vida actual es menor que la vida máxima
+        {
+            _towerCurrentMana += restoredMana;
+
+            if (_towerCurrentMana > _towerMaxMana) // Si la reparación pone la vida por encima de la vida máxima, se iguala con la vida máxima
+                _towerCurrentMana = _towerMaxMana;
+        }
+        Debug.Log("Mana Restored");
     }
 
     void changeSprite()
@@ -102,7 +120,6 @@ public class Torre : MonoBehaviour {
             }
         }
         _towerCooldownTimer += Time.deltaTime;
-        Debug.Log("cooldown: " + _towerCooldownTimer);
     }
 
 
