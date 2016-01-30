@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+public delegate void StandartEvent();
+
 public class GameManager : MonoBehaviour {
 
     [System.Serializable]
@@ -27,6 +29,8 @@ public class GameManager : MonoBehaviour {
     public Transform spawnPoint;
     public enemyspawners[] enemies;
     public enemyspawners[] boses;
+
+    public static StandartEvent OnRoundChange;
 
 	// Variables privadas
     static GameManager instance = null;
@@ -83,7 +87,7 @@ public class GameManager : MonoBehaviour {
             }
             // Boss
             GameObject boss = null;
-            while (boss == null)
+            while (boss == null && boses.Length != 0)
             {
                 int rand = Random.Range(0, 100);
                 for (int j = 0; j < boses.Length; ++j)
@@ -94,11 +98,13 @@ public class GameManager : MonoBehaviour {
                     }
                 }
             }
-            GameObject.Instantiate(boss, spawnPoint.position, spawnPoint.rotation);
+            if (boss!=null)
+                GameObject.Instantiate(boss, spawnPoint.position, spawnPoint.rotation);
 
             // Hacer cambio de oleada
             actualEnemies += IncreasedEnemiesPerRound;
             ++_round;
+            if (OnRoundChange != null) OnRoundChange();
 
             // Esperar
             yield return new WaitForSeconds(timeBetweenRounds);

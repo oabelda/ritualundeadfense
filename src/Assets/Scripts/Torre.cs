@@ -15,6 +15,11 @@ public class Torre : MonoBehaviour {
     [SerializeField]
     float _towerCooldown;
 
+    [SerializeField]
+    double _hpPerLevel;
+    [SerializeField]
+    double _manaPerLevel;
+
     [System.Serializable]
     public class spritesTower
     {
@@ -26,6 +31,8 @@ public class Torre : MonoBehaviour {
     
     [SerializeField]
     Sprite _healthyTower;
+    [SerializeField]
+    double manaRegen = 1;
     public GameObject projectile;
     public Vector3 _projectileSpawnDeviation;
 
@@ -41,11 +48,14 @@ public class Torre : MonoBehaviour {
             _towerSprite.sprite = _healthyTower;
 
         _towerCooldownTimer = _towerCooldown;
+        GameManager.OnRoundChange += OnRoundChange;
     }
 
     void Update()
     {
         registerMouse();
+        _towerCurrentMana += manaRegen * Time.deltaTime;
+        _towerCurrentMana = (_towerCurrentMana<_towerMaxHP)? _towerCurrentMana : _towerMaxHP;
     }
 
     // Función para registrar el daño que recibe la torre
@@ -76,7 +86,6 @@ public class Torre : MonoBehaviour {
             else
                 this.changeSprite();
         }
-        Debug.Log("Life Restored");
     }
 
     public void restoreMana(float percentage)
@@ -89,7 +98,12 @@ public class Torre : MonoBehaviour {
             if (_towerCurrentMana > _towerMaxMana) // Si la reparación pone la vida por encima de la vida máxima, se iguala con la vida máxima
                 _towerCurrentMana = _towerMaxMana;
         }
-        Debug.Log("Mana Restored");
+    }
+
+    void OnRoundChange()
+    {
+        _towerMaxHP += _hpPerLevel;
+        _towerMaxMana += _manaPerLevel;
     }
 
     void changeSprite()
