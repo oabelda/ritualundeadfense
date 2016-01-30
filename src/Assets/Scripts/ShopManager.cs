@@ -69,25 +69,19 @@ public class ShopManager : MonoBehaviour
     {
         for (int i = 0; i < _spellList.Count; ++i)
         {
-            if (_spellList[i] != null)
+            if (_spellList[i].name.Contains(spell))
             {
-                if (_spellList[i].name.Contains(spell))
+                if (_gold >= _spellList[i]._spells[0].GetComponent<Spell>().goldCost)
                 {
-                    if (_spellList[i]._spells[_spellList[i].level] != null)
+                    if (_spellList[i]._spells[0] != null)
                     {
-                       
-                        if (_gold >= _spellList[i]._spells[_spellList[i].level].GetComponent<Spell>().goldCost)
-                        {
-                            if (_spellList[i]._spells[_spellList[i].level] != null)
-                            {
-                                SpellCircle.LearnSpell(_spellList[i]._spells[_spellList[i].level++]);
-                                UpdateSpellIndication(i);
-                            }
-                            else
-                                Debug.LogError("Error fatal");
-                            removeGold(_spellList[i]._spells[0].GetComponent<Spell>().goldCost);
-                        }
+                        if(_spellList[i].level+1 <= _spellList[i]._spells.Count)
+                        SpellCircle.LearnSpell(_spellList[i]._spells[_spellList[i].level++]);
+                        UpdateSpellIndication(i);
                     }
+                    else
+                        Debug.LogError("Error fatal");
+                    removeGold(_spellList[i]._spells[0].GetComponent<Spell>().goldCost);
                 }
             }
 
@@ -96,21 +90,15 @@ public class ShopManager : MonoBehaviour
 
     public void RestoreMana()
     {
-        if (_gold >= _goldMana)
-        {
-            GameObject.FindGameObjectWithTag("Torre").SendMessage("restoreMana", _manaRestored, SendMessageOptions.RequireReceiver);
-            removeGold(_goldMana);
-        }
+        GameObject.FindGameObjectWithTag("Torre").SendMessage("restoreMana", _manaRestored, SendMessageOptions.RequireReceiver);
+        removeGold(_goldMana);
 
     }
 
     public void RestoreLife()
     {
-        if (_gold >= _goldRepair)
-        {
-            GameObject.FindGameObjectWithTag("Torre").SendMessage("repairTower", _lifeRestored, SendMessageOptions.RequireReceiver);
-            removeGold(_goldRepair);
-        }
+        GameObject.FindGameObjectWithTag("Torre").SendMessage("repairTower", _lifeRestored,SendMessageOptions.RequireReceiver);
+        removeGold(_goldRepair);
     }
 
     //Actualiza el texto del dinero
@@ -128,21 +116,21 @@ public class ShopManager : MonoBehaviour
                 if (_spellList[fila].level == 1)
                     _fila1[0].color = new Color(_fila1[0].color.r, _fila1[0].color.g, _fila1[0].color.b, 1);
                 _fila1[1].color = new Color(_fila1[1].color.r, _fila1[1].color.g, _fila1[1].color.b, 1);
-                if (_spellList[fila].level > 1)
+                if (_spellList[fila].level > 1 && _spellList[fila].level <= _spellList[fila]._spells.Count)
                     _fila1[_spellList[fila].level].color = new Color(_fila1[_spellList[fila].level].color.r, _fila1[_spellList[fila].level].color.g, _fila1[_spellList[fila].level].color.b, 1);
                 break;
             case 1:
                 if (_spellList[fila].level == 1)
                     _fila2[0].color = new Color(_fila2[0].color.r, _fila2[0].color.g, _fila2[0].color.b, 1);
                 _fila2[1].color = new Color(_fila2[1].color.r, _fila2[1].color.g, _fila2[1].color.b, 1);
-                if (_spellList[fila].level > 1)
+                if (_spellList[fila].level > 1 && _spellList[fila].level <= _spellList[fila]._spells.Count)
                     _fila2[_spellList[fila].level].color = new Color(_fila2[_spellList[fila].level].color.r, _fila2[_spellList[fila].level].color.g, _fila2[_spellList[fila].level].color.b, 1);
                 break;
             case 2:
                 if (_spellList[fila].level == 1)
                     _fila3[0].color = new Color(_fila3[0].color.r, _fila3[0].color.g, _fila3[0].color.b, 1);
                 _fila3[1].color = new Color(_fila3[1].color.r, _fila3[1].color.g, _fila3[1].color.b, 1);
-                if (_spellList[fila].level > 1)
+                if (_spellList[fila].level > 1 && _spellList[fila].level <= _spellList[fila]._spells.Count)
                     _fila3[_spellList[fila].level].color = new Color(_fila3[_spellList[fila].level].color.r, _fila3[_spellList[fila].level].color.g, _fila3[_spellList[fila].level].color.b, 1);
                 break;
         }
