@@ -5,12 +5,13 @@ public class Enemy : MonoBehaviour {
     // Variables publicas
 
     public double InitialLife;
-    public double Damage;
+    public float Damage;
     public float AttackSpeed;
     public float RangeDistance;
     public float Speed;
     public float AttackAnimationTime;
     public float DieAnimationTime;
+    public GameObject projectile;
 
 
 
@@ -23,7 +24,7 @@ public class Enemy : MonoBehaviour {
     private STATE _state;
     private Animator _animator;
     private Rigidbody2D _rigidbody;
-    private GameObject _adversary;
+    private GameObject _adversary, newProyectile;
 
     [SerializeField]
     private TYPE _type;
@@ -44,11 +45,12 @@ public class Enemy : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
+        MainAction();
 
         if (_type == TYPE.RANGE)
         CheckForFrontAdversary();
 
-        MainAction();
+        
     }
 
     //Stop Walking On TriggerEnter
@@ -117,7 +119,8 @@ public class Enemy : MonoBehaviour {
                     _state = STATE.ATTACKING;
                 break;
             case STATE.ATTACKING:
-                if(_adversary==null)
+                Debug.Log("Entro en ATTACKING");
+                if (_adversary==null)
                 {
                     _state = STATE.WALK;
                 }
@@ -131,11 +134,15 @@ public class Enemy : MonoBehaviour {
                             break;
                         case TYPE.RANGE:
                             //Shoot proyectile   //**ATACAR LANZAR PROYECTIL WHAT EVER (PASAR DAMAGE COMO PARAMETRO);
+                            Debug.Log("Disparando proyectil");
+                            newProyectile = Instantiate(projectile, transform.position + Vector3.left, Quaternion.identity) as GameObject;
+                            newProyectile.GetComponent<ProjectileManager>().initParameters(Damage,Vector2.left,this.gameObject.tag);
                             break;
                     }
                 }
                 StartCoroutine(Wait(AttackAnimationTime));
                 _lastAtackTime = 0;
+                _state = STATE.ATTACK;
                 break;
             case STATE.DIE:
                 _rigidbody.velocity = Vector2.zero;
@@ -152,18 +159,22 @@ public class Enemy : MonoBehaviour {
 
     private void CheckForFrontAdversary()
     {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.left, RangeDistance);
+        RaycastHit2D hit = Physics2D.Raycast(transform.position + new Vector3(-1f,0,0), Vector2.left, RangeDistance);
         if (hit.collider != null)
         {
-            if (hit.collider.CompareTag("Torre") || hit.collider.CompareTag("Ally"))
+            //Debug.Log("Colision detectada "+ hit.collider.gameObject.name);
+            if (_state != STATE.ATTACKING)
             {
-                _adversary = hit.collider.gameObject;
-                _state = STATE.ATTACK;
-            }
-            else
-            {
-                _adversary = null;
-                _state = STATE.WALK;
+                if (hit.collider.CompareTag("Torre") || hit.collider.CompareTag("Ally"))
+                {
+                    _adversary = hit.collider.gameObject;
+                    _state = STATE.ATTACK;
+                }
+                else
+                {
+                    _adversary = null;
+                    _state = STATE.WALK;
+                }
             }
         }
         else
