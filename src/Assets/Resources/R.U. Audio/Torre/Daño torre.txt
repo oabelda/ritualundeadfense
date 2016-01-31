@@ -1,0 +1,1 @@
+Tal vez se podría utilizar el sonido en tres o cuatro niveles de volumen diferentes para indicar la cantidad de daño recibido. Y utilizar el de la caida como Game Over.

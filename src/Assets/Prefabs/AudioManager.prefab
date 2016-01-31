@@ -52,8 +52,10 @@ MonoBehaviour:
   _audioClips:
   - _audioClip: {fileID: 8300000, guid: e3ed62e7a737f1b45851c8d58b5fc767, type: 3}
     _stringKey: Caja
-  - _audioClip: {fileID: 0}
-    _stringKey: 
+  - _audioClip: {fileID: 8300000, guid: 24e9f51d7c6b2064eb131c129136d166, type: 3}
+    _stringKey: spellOk
+  - _audioClip: {fileID: 8300000, guid: 26d460ce398c4d840b09fedefdfcf110, type: 3}
+    _stringKey: spellNot
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
