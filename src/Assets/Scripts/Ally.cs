@@ -3,13 +3,13 @@ using System.Collections;
 
 public class Ally : MonoBehaviour {
     // Variables publicas
-    public double Life;
+    public float Life;
     public float Damage;
     public float AttackSpeed;
     public float SecondsOfDying;
 
     // Variables privadas
-    private double _life;
+    public float _life;
     protected float _attackTimer;
 
     protected Animator _animator;

@@ -43,7 +43,7 @@ MonoBehaviour:
   runes: 020000000300000001000000
   spellID: 0
   goldCost: 175
-  manaCost: 20
+  manaCost: 60
   minionPrefab: {fileID: 161374, guid: 3ba81319568c9c84ea6383b750127be5, type: 2}
   _Yoffset: 1.6
 --- !u!212 &21226938
@@ -93,7 +93,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: manaCost
-      value: 20
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: minionPrefab

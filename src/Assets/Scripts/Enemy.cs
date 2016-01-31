@@ -76,7 +76,6 @@ public class Enemy : MonoBehaviour {
     public void HitEnemy(float damage)
     {
         _life -= damage;
-        Debug.Log("Vida enemigo " + _life);
         //Check if damege kills enemy
         if(_life<=0f)
         {

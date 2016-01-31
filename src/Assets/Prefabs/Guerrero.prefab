@@ -125,7 +125,7 @@ MonoBehaviour:
   LifeIncrease: 0.5
   Damage: 1
   DamageIncrease: 0.5
-  AttackSpeed: 2
+  AttackSpeed: 1.5
   RangeDistance: 1
   Speed: 90
   AttackAnimationTime: 0
@@ -223,7 +223,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: AttackSpeed
-      value: 2
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: Speed

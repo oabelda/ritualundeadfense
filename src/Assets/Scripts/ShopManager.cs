@@ -30,6 +30,9 @@ public class ShopManager : MonoBehaviour
     [SerializeField]
     private Text[] prices;
 
+    [SerializeField]
+    private List<Button> _spellsButtons;
+
     // Use this for spawn this instance
     void Awake()
     {
@@ -58,23 +61,30 @@ public class ShopManager : MonoBehaviour
         {
             if (_spellList[i].name.Contains(spell)) 
             {
-                if (_gold >= _spellList[i]._spells[0].GetComponent<Spell>().goldCost && _spellList[i].level < _spellList[i]._spells.Count)
+                if (_gold >= _spellList[i]._spells[_spellList[i].level].GetComponent<Spell>().goldCost && _spellList[i].level < _spellList[i]._spells.Count)
                 {
-                    Debug.Log("alksdjhfila");
                     if (_spellList[i]._spells[0] != null)
                     {
-                        if(_spellList[i].level+1 <= _spellList[i]._spells.Count)
-                        SpellCircle.LearnSpell(_spellList[i]._spells[_spellList[i].level++]);
+                        if(_spellList[i].level <= _spellList[i]._spells.Count)
+                        {
+                            removeGold(_spellList[i]._spells[_spellList[i].level].GetComponent<Spell>().goldCost);
+                            SpellCircle.LearnSpell(_spellList[i]._spells[_spellList[i].level++]);
+                            if (_spellList[i].level + 1 > _spellList[i]._spells.Count)
+                            {
+                                _spellsButtons[i].interactable = false;
+                                _spellsButtons[i].transform.GetChild(0).gameObject.SetActive(false);
+                            }
+                            setSpellsPrices();
+                        }
                         UpdateSpellIndication(i);
                     }
                     else
                         Debug.LogError("Error fatal");
-                    removeGold(_spellList[i]._spells[0].GetComponent<Spell>().goldCost);
                 }
             }
 
         }
-        setSpellsPrices();
+       
     }
 
     public void RestoreMana()
@@ -100,6 +110,7 @@ public class ShopManager : MonoBehaviour
     {
         for(int i = 0; i < _spellList.Count; i++)
         {
+            if (_spellList[i].level < _spellList[i]._spells.Count)
             prices[i].text = "" + _spellList[i]._spells[_spellList[i].level].GetComponent<Spell>().goldCost;
         }
     }
@@ -113,6 +124,7 @@ public class ShopManager : MonoBehaviour
 
     void UpdateSpellIndication(int fila)
     {
+
         switch(fila)
         {
             case 0:

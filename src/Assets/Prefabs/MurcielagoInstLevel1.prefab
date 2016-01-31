@@ -28,7 +28,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 488088}
   - 212: {fileID: 21256022}
-  - 114: {fileID: 11406032}
+  - 114: {fileID: 11466844}
   m_Layer: 0
   m_Name: Life
   m_TagString: Untagged
@@ -92,17 +92,6 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &11406032
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 179610}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aab61ea605fac364e854ffeb60f59601, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &11453988
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -118,10 +107,22 @@ MonoBehaviour:
   Damage: 1
   AttackSpeed: 0.75
   SecondsOfDying: 1
+  _life: 0
   RangeDistance: 1
   m_LayerMask:
     serializedVersion: 2
     m_Bits: 256
+--- !u!114 &11466844
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 179610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91e44bc23c29d26499a716682a6f779b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &21254214
 SpriteRenderer:
   m_ObjectHideFlags: 1

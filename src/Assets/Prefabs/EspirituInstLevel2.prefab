@@ -9,7 +9,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 455056}
   - 212: {fileID: 21201374}
-  - 114: {fileID: 11460466}
+  - 114: {fileID: 11459114}
   m_Layer: 0
   m_Name: Life
   m_TagString: Untagged
@@ -107,12 +107,13 @@ MonoBehaviour:
   Damage: 2
   AttackSpeed: 1
   SecondsOfDying: 1
+  _life: 0
   m_projectile: {fileID: 161370, guid: dbafc0b2a1d3b6148aace8a53a327376, type: 2}
   RangeDistance: 5
   m_LayerMask:
     serializedVersion: 2
     m_Bits: 256
---- !u!114 &11460466
+--- !u!114 &11459114
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -120,7 +121,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 154610}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aab61ea605fac364e854ffeb60f59601, type: 3}
+  m_Script: {fileID: 11500000, guid: 91e44bc23c29d26499a716682a6f779b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!212 &21201374
