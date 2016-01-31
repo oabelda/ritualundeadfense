@@ -34,7 +34,7 @@ public class GameManager : MonoBehaviour {
     public static StandartEvent OnRoundChange;
 
     public GameObject spellCircle;
-    public GameObject endInformation;
+    //public GameObject endInformation;
 
 	// Variables privadas
     static GameManager instance = null;

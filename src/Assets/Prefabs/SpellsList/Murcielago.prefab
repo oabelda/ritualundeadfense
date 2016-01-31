@@ -58,6 +58,10 @@ Prefab:
       propertyPath: _spells.Array.data[1]
       value: 
       objectReference: {fileID: 124370, guid: 553add261c8e4f149842953688f293b3, type: 2}
+    - target: {fileID: 0}
+      propertyPath: level
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 158906}

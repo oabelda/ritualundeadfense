@@ -6,10 +6,6 @@ using UnityEngine.UI;
 public class ShopManager : MonoBehaviour
 {
 
-    //public Animator _shopAnimator;
-    public Text _goldText;
-    private bool _shopOpened = false;
-
     [Range(0.0f, 1.0f)]
     public float _lifeRestored = 0.05f;
     [Range(0.0f, 1.0f)]
@@ -40,36 +36,18 @@ public class ShopManager : MonoBehaviour
             Destroy(gameObject);
     }
 
-    void Start()
-    {
-        _goldText.text = _gold.ToString();
-    }
-
-    //public void shopButton()
-    //{
-    //    if (_shopOpened)
-    //    {
-    //        _shopAnimator.SetTrigger("Ocultar");
-    //        _shopOpened = false;
-    //    }
-    //    else
-    //    {
-    //        _shopAnimator.SetTrigger("Mostrar");
-    //        _shopOpened = true;
-    //    }
-    //}
 
     public static void addGold(int amount)
     {
         instance._gold += amount;
-        instance._goldText.text = instance._gold.ToString();
     }
 
     public void LearnSpell(string spell)
     {
+
         for (int i = 0; i < _spellList.Count; ++i)
         {
-            if (_spellList[i].name.Contains(spell))
+            if (_spellList[i].name.Contains(spell)) 
             {
                 if (_gold >= _spellList[i]._spells[0].GetComponent<Spell>().goldCost && _spellList[i].level < _spellList[i]._spells.Count)
                 {
@@ -111,7 +89,6 @@ public class ShopManager : MonoBehaviour
     void removeGold(int amount)
     {
         _gold -= amount;
-        _goldText.text = _gold.ToString();
     }
 
     void UpdateSpellIndication(int fila)

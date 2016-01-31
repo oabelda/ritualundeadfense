@@ -47,7 +47,7 @@ public class Spell : MonoBehaviour
                     {
                         if (!hit.collider.gameObject.CompareTag("Ally") && !hit.collider.gameObject.CompareTag("Enemy") && !hit.collider.gameObject.CompareTag("Torre"))
                         {
-                            GameObject allyInst = GameObject.Instantiate(minionPrefab, new Vector2(hit.point.x, hit.point.y + _Yoffset), minionPrefab.transform.rotation) as GameObject;
+                            GameObject.Instantiate(minionPrefab, new Vector2(hit.point.x, hit.point.y + _Yoffset), minionPrefab.transform.rotation);
                             Destroy(this.gameObject);
                         }
                     }
