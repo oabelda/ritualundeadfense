@@ -257,6 +257,10 @@ Prefab:
       propertyPath: Gold
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: _projectile
+      value: 
+      objectReference: {fileID: 161370, guid: dbafc0b2a1d3b6148aace8a53a327376, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 126766}

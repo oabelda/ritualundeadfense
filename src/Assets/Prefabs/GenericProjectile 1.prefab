@@ -13,7 +13,7 @@ GameObject:
   - 61: {fileID: 6140350}
   - 114: {fileID: 11441188}
   m_Layer: 2
-  m_Name: GenericProjectile
+  m_Name: GenericProjectile 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -101,9 +101,9 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 4f973c365d0749e47a2b3bfad6c9c675, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6cec0fdd928a1ec489023e1fc5f3a30b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 1
+  m_FlipX: 0
   m_FlipY: 0
 --- !u!1001 &100100000
 Prefab:
@@ -115,7 +115,7 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 4f973c365d0749e47a2b3bfad6c9c675,
+      objectReference: {fileID: 21300000, guid: 6cec0fdd928a1ec489023e1fc5f3a30b,
         type: 3}
     - target: {fileID: 0}
       propertyPath: m_Layer
@@ -148,10 +148,6 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_lifetime
       value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: m_FlipX
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

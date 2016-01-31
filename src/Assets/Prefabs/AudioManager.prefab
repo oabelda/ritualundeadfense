@@ -48,7 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _audioSourcePrefab: {fileID: 152574, guid: 2602cf004efa52d4ba1001d2107bb092, type: 2}
-  _music: {fileID: 8300000, guid: 74dd6f9d1dd2be6429d1fa2cd2990b59, type: 3}
+  _music: {fileID: 8300000, guid: ea8377e4c57d164458e02e895203859e, type: 3}
   _audioClips:
   - _audioClip: {fileID: 8300000, guid: e3ed62e7a737f1b45851c8d58b5fc767, type: 3}
     _stringKey: Caja
@@ -56,7 +56,7 @@ MonoBehaviour:
     _stringKey: outOfMana
   - _audioClip: {fileID: 8300000, guid: 26d460ce398c4d840b09fedefdfcf110, type: 3}
     _stringKey: spellNot
-  - _audioClip: {fileID: 8300000, guid: b56375974c159c540b9713c1d6d46b1e, type: 3}
+  - _audioClip: {fileID: 8300000, guid: 0d2237fdc02843a4db9f6b56daaae329, type: 3}
     _stringKey: endGame
   - _audioClip: {fileID: 8300000, guid: 8a4ff9a47eb443146b612b5ab5395b36, type: 3}
     _stringKey: murcielago1

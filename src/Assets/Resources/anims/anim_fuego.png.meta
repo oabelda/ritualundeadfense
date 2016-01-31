@@ -3,7 +3,10 @@ guid: 4f973c365d0749e47a2b3bfad6c9c675
 timeCreated: 1454240708
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: anim_fuego_0
+    21300002: anim_fuego_1
+    21300004: anim_fuego_2
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -38,7 +41,7 @@ TextureImporter:
   rGBM: 0
   compressionQuality: 50
   allowsAlphaSplitting: 0
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -60,7 +63,21 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
+      outline:
+      - - {x: 105, y: 33}
+        - {x: 84, y: 85}
+        - {x: 29, y: 104}
+        - {x: -52, y: 104}
+        - {x: -93, y: 63}
+        - {x: -116, y: 30}
+        - {x: -116, y: -47}
+        - {x: -106, y: -95}
+        - {x: -40, y: -124}
+        - {x: 11, y: -124}
+        - {x: 50, y: -113}
+        - {x: 98, y: -62}
+        - {x: 111, y: -25}
+        - {x: 111, y: 16}
     - name: anim_fuego_1
       rect:
         serializedVersion: 2
@@ -71,7 +88,30 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
+      outline:
+      - - {x: 0, y: 113}
+        - {x: -53, y: 94}
+        - {x: -78, y: 65}
+        - {x: -114, y: 33}
+        - {x: -114, y: -73}
+        - {x: -78, y: -116}
+        - {x: -23, y: -84}
+        - {x: -21, y: -82}
+        - {x: -23, y: -85}
+        - {x: -28, y: -91}
+        - {x: -14, y: -122}
+        - {x: 33, y: -122}
+        - {x: 99, y: -69}
+        - {x: 99, y: 38}
+        - {x: 44, y: 113}
+      - - {x: -103, y: -54}
+        - {x: -105, y: -56}
+        - {x: -105, y: -58}
+        - {x: -101, y: -63}
+        - {x: -98, y: -63}
+        - {x: -96, y: -62}
+        - {x: -96, y: -59}
+        - {x: -98, y: -54}
     - name: anim_fuego_2
       rect:
         serializedVersion: 2
@@ -82,7 +122,22 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
+      outline:
+      - - {x: 111, y: 19}
+        - {x: 102, y: 48}
+        - {x: 53, y: 95}
+        - {x: -20, y: 95}
+        - {x: -74, y: 79}
+        - {x: -111, y: 46}
+        - {x: -111, y: -26}
+        - {x: -106, y: -45}
+        - {x: -77, y: -88}
+        - {x: -8, y: -113}
+        - {x: 39, y: -113}
+        - {x: 52, y: -111}
+        - {x: 89, y: -79}
+        - {x: 110, y: -43}
+        - {x: 111, y: -33}
     outline: []
   spritePackingTag: 
   userData: 
