@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class SceneChanger : MonoBehaviour {
 	// Variables publicas
-    public string nombreEscena;
+    public int idEscena;
 
 	// Variables privadas
 
@@ -12,7 +12,7 @@ public class SceneChanger : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        SceneManager.LoadScene(nombreEscena);
+        SceneManager.LoadScene(idEscena);
 	}
 	
 	// Otros métodos publicos

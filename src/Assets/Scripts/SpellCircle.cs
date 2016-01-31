@@ -22,8 +22,11 @@ public class SpellCircle : MonoBehaviour {
 
     void Start()
     {
-        Torre = GameObject.FindGameObjectWithTag("Torre").GetComponent<Torre>();
+        GameObject torre = GameObject.FindGameObjectWithTag("Torre");
+        if (torre != null)
+            Torre = torre.GetComponent<Torre>();
     }
+
     // Use this for spawn this instance
     void Awake()
     {

@@ -16,8 +16,12 @@ public class Spell : MonoBehaviour
     
     void Start()
     {
-        _gamemanager = GameObject.FindWithTag("GameManager").GetComponent<GameManager>();
-        _gamemanager.changeActiveSpell(this.gameObject);
+        GameObject gmanager = GameObject.FindGameObjectWithTag("GameManager");
+        if (gmanager != null)
+        {
+            _gamemanager = gmanager.GetComponent<GameManager>();
+            _gamemanager.changeActiveSpell(this.gameObject);
+        }
     }
     // Update is called once per frame
     void Update()

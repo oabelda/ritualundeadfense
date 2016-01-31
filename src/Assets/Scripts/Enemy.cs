@@ -31,6 +31,7 @@ public class Enemy : MonoBehaviour {
     private Animator _animator;
     private Rigidbody2D _rigidbody;
     private GameObject _adversary, newProyectile;
+    private SpriteRenderer m_sprite;
 
     [SerializeField]
     private TYPE _type;
@@ -44,6 +45,7 @@ public class Enemy : MonoBehaviour {
     {
         _animator = GetComponent<Animator>();
         _rigidbody = GetComponent<Rigidbody2D>();
+        m_sprite = GetComponent<SpriteRenderer>();
         _life = InitialLife + GameManager.Round * LifeIncrease;
         _damage = Damage + GameManager.Round * DamageIncrease;
         _lastAtackTime = 0f;
@@ -64,7 +66,7 @@ public class Enemy : MonoBehaviour {
 	void Update () {
         MainAction();
 
-        if (_state != STATE.DIE)
+        if (_state != STATE.DIE && _state != STATE.DYING)
             CheckForFrontAdversary();
 
         
@@ -131,8 +133,16 @@ public class Enemy : MonoBehaviour {
             case STATE.DIE:
                 ShopManager.addGold(Gold);
                 StartCoroutine(Die(DieAnimationTime));
+                _state = STATE.DYING;
+                var c = m_sprite.color;
+                c.g = 0f;
+                c.b = 0f;
+                m_sprite.color = c;
                 break;
             case STATE.DYING:
+                var color = m_sprite.color;
+                color.a -= Time.deltaTime;
+                m_sprite.color = color;
                 break;
             default:
                 break;
@@ -169,7 +179,7 @@ public class Enemy : MonoBehaviour {
         _animator.SetInteger("State", 3);
         foreach (Collider2D collider in GetComponentsInChildren<Collider2D>())
             collider.enabled = false;
-        this.enabled = false;
+
         yield return new WaitForSeconds(time);
         Destroy(gameObject);
     }

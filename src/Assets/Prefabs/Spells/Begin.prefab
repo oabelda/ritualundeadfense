@@ -41,7 +41,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0260c7cd95a34fb4b8939a5a81744d20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nombreEscena: GameScene
+  idEscena: 1
 --- !u!114 &11439602
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -53,7 +53,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 328e44e4d84aa344fb1b021aa4d8263e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  runes: 000000000100000002000000
+  runes: 020000000500000001000000
   spellID: 0
   goldCost: 5
   manaCost: 10
@@ -102,11 +102,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: runes.Array.data[1]
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: runes.Array.data[2]
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_TagString
@@ -114,7 +114,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: nombreEscena
-      value: GameScene
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: runes.Array.data[0]
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: idEscena
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

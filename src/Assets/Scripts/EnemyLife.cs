@@ -14,6 +14,13 @@ public class EnemyLife : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        transform.localScale = new Vector3(parent._life / maxLife, transform.localScale.y);
+        if (parent._life <= 0)
+        {
+            transform.localScale = new Vector3(0.0f, transform.localScale.y);
+        }
+        else
+        {
+            transform.localScale = new Vector3(parent._life / maxLife, transform.localScale.y);
+        }
 	}
 }
