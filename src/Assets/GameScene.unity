@@ -176,6 +176,22 @@ Prefab:
       propertyPath: _spellList.Array.data[2]
       value: 
       objectReference: {fileID: 1902672096}
+    - target: {fileID: 22415856, guid: c27a36eab13a14448845c3acf16f3798, type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 62
+      objectReference: {fileID: 0}
+    - target: {fileID: 22415856, guid: c27a36eab13a14448845c3acf16f3798, type: 2}
+      propertyPath: m_SizeDelta.x
+      value: 622
+      objectReference: {fileID: 0}
+    - target: {fileID: 22415856, guid: c27a36eab13a14448845c3acf16f3798, type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: 26.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 22415856, guid: c27a36eab13a14448845c3acf16f3798, type: 2}
+      propertyPath: m_SizeDelta.y
+      value: 268
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c27a36eab13a14448845c3acf16f3798, type: 2}
   m_IsPrefabParent: 0

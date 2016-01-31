@@ -58,6 +58,8 @@ public class SpellCircle : MonoBehaviour {
                     else
                         NotEnoughtMana();
                 }
+                else
+                    GameObject.Instantiate(spellPrefab);
             }
             else
             {

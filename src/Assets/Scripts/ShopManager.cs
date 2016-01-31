@@ -71,7 +71,7 @@ public class ShopManager : MonoBehaviour
         {
             if (_spellList[i].name.Contains(spell))
             {
-                if (_gold >= _spellList[i]._spells[0].GetComponent<Spell>().goldCost)
+                if (_gold >= _spellList[i]._spells[0].GetComponent<Spell>().goldCost && _spellList[i].level < _spellList[i]._spells.Count)
                 {
                     if (_spellList[i]._spells[0] != null)
                     {
@@ -90,15 +90,21 @@ public class ShopManager : MonoBehaviour
 
     public void RestoreMana()
     {
-        GameObject.FindGameObjectWithTag("Torre").SendMessage("restoreMana", _manaRestored, SendMessageOptions.RequireReceiver);
-        removeGold(_goldMana);
+        if (_gold >= _goldMana)
+        {
+            GameObject.FindGameObjectWithTag("Torre").SendMessage("restoreMana", _manaRestored, SendMessageOptions.RequireReceiver);
+            removeGold(_goldMana);
+        }
 
     }
 
     public void RestoreLife()
     {
-        GameObject.FindGameObjectWithTag("Torre").SendMessage("repairTower", _lifeRestored,SendMessageOptions.RequireReceiver);
-        removeGold(_goldRepair);
+        if (_gold >= _goldRepair)
+        {
+            GameObject.FindGameObjectWithTag("Torre").SendMessage("repairTower", _lifeRestored, SendMessageOptions.RequireReceiver);
+            removeGold(_goldRepair);
+        }
     }
 
     //Actualiza el texto del dinero
