@@ -11,6 +11,7 @@ public class Spell : MonoBehaviour
     public float _Yoffset;
     // Variables privadas
     //float duration = 5;
+    private Transform greenFloor; // Para indicar dónde se pueden castear torres
     GameManager _gamemanager;
     // Metodos Awake, Start, Update....
     
@@ -22,6 +23,9 @@ public class Spell : MonoBehaviour
             _gamemanager = gmanager.GetComponent<GameManager>();
             _gamemanager.changeActiveSpell(this.gameObject);
         }
+        GameObject background = GameObject.FindGameObjectWithTag("Background");
+        greenFloor = background.transform.GetChild(0);
+        greenFloor.gameObject.SetActive(false);
     }
     // Update is called once per frame
     void Update()
@@ -41,6 +45,7 @@ public class Spell : MonoBehaviour
             case "GolemLevel2":
             case "MurcielagoLevel1":
             case "MurcielagoLevel2":
+                greenFloor.gameObject.SetActive(true);
                 if (Input.GetMouseButtonDown(0))
                 {
                     RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), new Vector3(0, -1, 0), Screen.height);
@@ -50,6 +55,7 @@ public class Spell : MonoBehaviour
                         {
                             GameObject.Instantiate(minionPrefab, new Vector2(hit.point.x, hit.point.y + _Yoffset), minionPrefab.transform.rotation);
                             Destroy(this.gameObject);
+                            greenFloor.gameObject.SetActive(false);
                         }
                     }
                 }

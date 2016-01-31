@@ -10,6 +10,7 @@ TagManager:
   - Spell
   - SpellButton
   - GameManager
+  - Background
   layers:
   - Default
   - TransparentFX
