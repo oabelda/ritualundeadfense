@@ -42,6 +42,7 @@ public class Torre : MonoBehaviour {
 
     private SpriteRenderer _towerSprite;
     private float _towerCooldownTimer;
+    private Transform _nigromante;
     // Use this for initialization
     void Start () {
         TowerCurrentHP = TowerMaxHP;
@@ -52,6 +53,7 @@ public class Torre : MonoBehaviour {
 
         _towerCooldownTimer = _towerCooldown;
         GameManager.OnRoundChange += OnRoundChange;
+        _nigromante = transform.FindChild("Nigromante").GetComponent<Transform>();
     }
 
     void Update()
@@ -128,10 +130,9 @@ public class Torre : MonoBehaviour {
 
         if (_towerCooldownTimer >= _towerCooldown)
         {
-                Vector3 _throwPosition = transform.position + _projectileSpawnDeviation;
-                Vector3 _directionVector = Camera.main.ScreenToWorldPoint(Input.mousePosition) - _throwPosition;
+                Vector3 _directionVector = Camera.main.ScreenToWorldPoint(Input.mousePosition) - _nigromante.position;
 
-                GameObject newProjectile = Instantiate(projectile, _throwPosition, Quaternion.identity) as GameObject;
+                GameObject newProjectile = Instantiate(projectile, _nigromante.position, Quaternion.identity) as GameObject;
                 newProjectile.GetComponent<ProjectileManager>().initParameters(_towerDamage, _directionVector, this.gameObject.tag);
                 _towerCooldownTimer = 0.0f;
 

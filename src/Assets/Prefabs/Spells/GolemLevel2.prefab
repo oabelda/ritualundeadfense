@@ -42,9 +42,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   runes: 020000000300000001000000
   spellID: 0
-  goldCost: 10
+  goldCost: 175
   manaCost: 20
-  minionPrefab: {fileID: 198856, guid: b1418b00356adc3488ce1c675e62b374, type: 2}
+  minionPrefab: {fileID: 161374, guid: 3ba81319568c9c84ea6383b750127be5, type: 2}
   _Yoffset: 0.7
 --- !u!212 &21226938
 SpriteRenderer:
@@ -89,7 +89,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: goldCost
-      value: 10
+      value: 175
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: manaCost
@@ -98,7 +98,7 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: minionPrefab
       value: 
-      objectReference: {fileID: 198856, guid: b1418b00356adc3488ce1c675e62b374, type: 2}
+      objectReference: {fileID: 161374, guid: 3ba81319568c9c84ea6383b750127be5, type: 2}
     - target: {fileID: 0}
       propertyPath: m_LocalPosition.x
       value: 0

@@ -53,7 +53,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 179190}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10, y: 0, z: 0}
+  m_LocalPosition: {x: -10, y: 0.3, z: 0}
   m_LocalScale: {x: 1.8, y: 1.9, z: 1}
   m_Children:
   - {fileID: 400676}
@@ -84,25 +84,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33f34449af630ca48ad39de6f5c9e133, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _towerDamage: 5
+  _towerDamage: 0.5
   _towerCooldown: 0.5
   _hpPerLevel: 10
   _manaPerLevel: 5
   sprites:
-  - m_sprite: {fileID: 21300000, guid: 556e5df8dfea60e4fac41ed1be3b6c3d, type: 3}
-    life: 0.1
-  - m_sprite: {fileID: 21300000, guid: a6e07a43f0415d84c973db32496da98d, type: 3}
-    life: 0.3
-  - m_sprite: {fileID: 21300000, guid: 556e5df8dfea60e4fac41ed1be3b6c3d, type: 3}
+  - m_sprite: {fileID: 21300000, guid: d0657dcbb28cf0142ae52779e2b7a11e, type: 3}
     life: 0.5
-  _healthyTower: {fileID: 21300000, guid: a6e07a43f0415d84c973db32496da98d, type: 3}
-  manaRegen: 3
+  _healthyTower: {fileID: 21300000, guid: d0657dcbb28cf0142ae52779e2b7a11e, type: 3}
+  manaRegen: 2
   TowerMaxHP: 100
   TowerMaxMana: 50
   TowerCurrentHP: 0
   TowerCurrentMana: 0
   projectile: {fileID: 129516, guid: 676d137534805ee4c94052a5b869bd17, type: 2}
-  _projectileSpawnDeviation: {x: 0, y: 0.5, z: 0}
+  _projectileSpawnDeviation: {x: 0, y: 2, z: 0}
 --- !u!212 &21215270
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -172,7 +168,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 0}
       propertyPath: sprites.Array.size
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: _towerMaxHP
@@ -181,7 +177,7 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: _healthyTower
       value: 
-      objectReference: {fileID: 21300000, guid: a6e07a43f0415d84c973db32496da98d,
+      objectReference: {fileID: 21300000, guid: d0657dcbb28cf0142ae52779e2b7a11e,
         type: 3}
     - target: {fileID: 0}
       propertyPath: sprites.Array.data[2].m_sprite
@@ -196,7 +192,7 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: sprites.Array.data[0].m_sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 556e5df8dfea60e4fac41ed1be3b6c3d,
+      objectReference: {fileID: 21300000, guid: d0657dcbb28cf0142ae52779e2b7a11e,
         type: 3}
     - target: {fileID: 0}
       propertyPath: sprites.Array.data[2].life

@@ -13,13 +13,10 @@ public class Spell : MonoBehaviour
     //float duration = 5;
     GameManager _gamemanager;
     // Metodos Awake, Start, Update....
-    void Awake()
-    {
-        _gamemanager = GameObject.FindWithTag("GameManager").GetComponent<GameManager>();
-    }
     
     void Start()
     {
+        _gamemanager = GameObject.FindWithTag("GameManager").GetComponent<GameManager>();
         _gamemanager.changeActiveSpell(this.gameObject);
     }
     // Update is called once per frame
