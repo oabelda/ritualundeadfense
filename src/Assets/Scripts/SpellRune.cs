@@ -7,11 +7,14 @@ public class SpellRune : MonoBehaviour {
     // Enumerado publico
     public enum Rune
     {
-        Rune1,Rune2,Rune3,Rune4,Rune5
+        Fuego,Agua,Viento,Luz,Oscuridad,Tierra,Roca
     }
 
     // Variables publicas
     public Rune rune;
+
+    public Sprite activeRune;
+    public Sprite deactiveRune;
 
     // Variables privadas
     Image m_sprite;
@@ -37,9 +40,7 @@ public class SpellRune : MonoBehaviour {
     {
         if ((avialable || byClick) && !send)
         {
-            Color c = m_sprite.color;
-            c.a = SpellCircle.RUNE_ALPHA_ACTIVE;
-            m_sprite.color = c;
+            m_sprite.sprite = activeRune;
 
             SpellCircle.AddRune(rune);
 
@@ -49,9 +50,7 @@ public class SpellRune : MonoBehaviour {
 
     public void Deactivate()
     {
-        Color c = m_sprite.color;
-        c.a = SpellCircle.RUNE_ALPHA_UNACTIVE;
-        m_sprite.color = c;
+        m_sprite.sprite = deactiveRune;
 
         avialable = false;
         send = false;

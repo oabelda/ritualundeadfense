@@ -15,8 +15,7 @@ public class SpellCircle : MonoBehaviour {
     static SpellCircle instance = null;
     List<SpellRune.Rune> _spell = new List<SpellRune.Rune>();
     SpellTree _grimorium = new SpellTree();
-    [SerializeField]
-    private Torre Torre;
+    Torre Torre;
 
     // Metodos Awake, Start, Update....
 
@@ -28,6 +27,11 @@ public class SpellCircle : MonoBehaviour {
         else
             Destroy(gameObject);
         gameObject.SetActive(false);
+    }
+
+    void Start()
+    {
+        Torre = GameObject.FindGameObjectWithTag("Tower").GetComponent<Torre>();
     }
 
     // Update is called once per frame
