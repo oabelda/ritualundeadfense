@@ -1,9 +1,13 @@
 fileFormatVersion: 2
 guid: 2c0e28dc7f422b64b924355c68015c09
-timeCreated: 1454238923
+timeCreated: 1454240662
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: anim_cerdo_0
+    21300002: anim_cerdo_1
+    21300004: anim_cerdo_2
+    21300006: anim_cerdo_3
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -30,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     filterMode: -1
-    aniso: -1
+    aniso: 16
     mipBias: -1
     wrapMode: 1
   nPOTScale: 0
@@ -38,7 +42,7 @@ TextureImporter:
   rGBM: 0
   compressionQuality: 50
   allowsAlphaSplitting: 0
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -49,7 +53,224 @@ TextureImporter:
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
-    sprites: []
+    sprites:
+    - name: anim_cerdo_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -68, y: 119}
+        - {x: -69, y: 114}
+        - {x: -69, y: -69}
+        - {x: -53, y: -101}
+        - {x: -30, y: -116}
+        - {x: 31, y: -114}
+        - {x: 35, y: -113}
+        - {x: 33, y: -115}
+        - {x: 30, y: -125}
+        - {x: 36, y: -128}
+        - {x: 55, y: -128}
+        - {x: 69, y: -116}
+        - {x: 69, y: 119}
+      - - {x: 55, y: 52}
+        - {x: 58, y: 53}
+        - {x: 58, y: 56}
+        - {x: 55, y: 57}
+        - {x: 53, y: 55}
+      - - {x: 42, y: 124}
+        - {x: 43, y: 121}
+        - {x: 46, y: 121}
+        - {x: 48, y: 123}
+        - {x: 47, y: 126}
+        - {x: 44, y: 126}
+    - name: anim_cerdo_1
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -40, y: 104}
+        - {x: -98, y: 104}
+        - {x: -98, y: -24}
+        - {x: -59, y: -106}
+        - {x: -2, y: -128}
+        - {x: 72, y: -128}
+        - {x: 95, y: -31}
+        - {x: 95, y: 104}
+        - {x: 64, y: 104}
+        - {x: 33, y: 91}
+      - - {x: -25, y: 45}
+        - {x: -22, y: 44}
+        - {x: -19, y: 45}
+        - {x: -19, y: 71}
+        - {x: -22, y: 72}
+        - {x: -25, y: 71}
+      - - {x: -29, y: 101}
+        - {x: -29, y: 90}
+        - {x: -26, y: 74}
+        - {x: -24, y: 73}
+        - {x: -21, y: 74}
+        - {x: -21, y: 93}
+        - {x: -24, y: 101}
+      - - {x: 27, y: 112}
+        - {x: 26, y: 108}
+        - {x: 28, y: 106}
+        - {x: 30, y: 106}
+        - {x: 35, y: 114}
+        - {x: 35, y: 116}
+        - {x: 32, y: 117}
+      - - {x: -55, y: 119}
+        - {x: -58, y: 115}
+        - {x: -58, y: 110}
+        - {x: -56, y: 108}
+        - {x: -53, y: 109}
+        - {x: -51, y: 117}
+        - {x: -51, y: 118}
+        - {x: -53, y: 119}
+      - - {x: 42, y: 124}
+        - {x: 43, y: 121}
+        - {x: 46, y: 121}
+        - {x: 48, y: 123}
+        - {x: 47, y: 126}
+        - {x: 44, y: 126}
+    - name: anim_cerdo_2
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -128, y: 66}
+        - {x: -128, y: 17}
+        - {x: -60, y: -107}
+        - {x: -6, y: -128}
+        - {x: 80, y: -128}
+        - {x: 128, y: -33}
+        - {x: 128, y: 66}
+      - - {x: -45, y: 73}
+        - {x: -50, y: 73}
+        - {x: -50, y: 64}
+        - {x: -48, y: 52}
+        - {x: -42, y: 42}
+        - {x: -39, y: 42}
+        - {x: -37, y: 44}
+        - {x: -37, y: 54}
+      - - {x: -25, y: 45}
+        - {x: -22, y: 44}
+        - {x: -19, y: 45}
+        - {x: -19, y: 71}
+        - {x: -22, y: 72}
+        - {x: -25, y: 71}
+      - - {x: 55, y: 52}
+        - {x: 58, y: 53}
+        - {x: 58, y: 56}
+        - {x: 55, y: 57}
+        - {x: 53, y: 55}
+      - - {x: 44, y: 72}
+        - {x: 43, y: 70}
+        - {x: 43, y: 64}
+        - {x: 48, y: 64}
+        - {x: 49, y: 66}
+        - {x: 49, y: 71}
+        - {x: 47, y: 73}
+      - - {x: -29, y: 101}
+        - {x: -29, y: 90}
+        - {x: -26, y: 74}
+        - {x: -24, y: 73}
+        - {x: -21, y: 74}
+        - {x: -21, y: 93}
+        - {x: -24, y: 101}
+      - - {x: 27, y: 112}
+        - {x: 26, y: 108}
+        - {x: 28, y: 106}
+        - {x: 30, y: 106}
+        - {x: 35, y: 114}
+        - {x: 35, y: 116}
+        - {x: 32, y: 117}
+      - - {x: -55, y: 119}
+        - {x: -58, y: 115}
+        - {x: -58, y: 110}
+        - {x: -56, y: 108}
+        - {x: -53, y: 109}
+        - {x: -51, y: 117}
+        - {x: -51, y: 118}
+        - {x: -53, y: 119}
+      - - {x: 42, y: 124}
+        - {x: 43, y: 121}
+        - {x: 46, y: 121}
+        - {x: 48, y: 123}
+        - {x: 47, y: 126}
+        - {x: 44, y: 126}
+    - name: anim_cerdo_3
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -40, y: 104}
+        - {x: -98, y: 104}
+        - {x: -98, y: -24}
+        - {x: -59, y: -106}
+        - {x: -2, y: -128}
+        - {x: 72, y: -128}
+        - {x: 95, y: -31}
+        - {x: 95, y: 104}
+        - {x: 64, y: 104}
+        - {x: 33, y: 91}
+      - - {x: -25, y: 45}
+        - {x: -22, y: 44}
+        - {x: -19, y: 45}
+        - {x: -19, y: 71}
+        - {x: -22, y: 72}
+        - {x: -25, y: 71}
+      - - {x: -29, y: 101}
+        - {x: -29, y: 90}
+        - {x: -26, y: 74}
+        - {x: -24, y: 73}
+        - {x: -21, y: 74}
+        - {x: -21, y: 93}
+        - {x: -24, y: 101}
+      - - {x: 27, y: 112}
+        - {x: 26, y: 108}
+        - {x: 28, y: 106}
+        - {x: 30, y: 106}
+        - {x: 35, y: 114}
+        - {x: 35, y: 116}
+        - {x: 32, y: 117}
+      - - {x: -55, y: 119}
+        - {x: -58, y: 115}
+        - {x: -58, y: 110}
+        - {x: -56, y: 108}
+        - {x: -53, y: 109}
+        - {x: -51, y: 117}
+        - {x: -51, y: 118}
+        - {x: -53, y: 119}
+      - - {x: 42, y: 124}
+        - {x: 43, y: 121}
+        - {x: 46, y: 121}
+        - {x: 48, y: 123}
+        - {x: 47, y: 126}
+        - {x: 44, y: 126}
     outline: []
   spritePackingTag: 
   userData: 

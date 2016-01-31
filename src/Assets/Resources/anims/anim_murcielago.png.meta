@@ -1,9 +1,13 @@
 fileFormatVersion: 2
 guid: 5bf534d549831ca42b7dd1523714fbe0
-timeCreated: 1454238925
+timeCreated: 1454240825
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: anim_murcielago_0
+    21300002: anim_murcielago_1
+    21300004: anim_murcielago_2
+    21300006: anim_murcielago_3
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -30,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     filterMode: -1
-    aniso: -1
+    aniso: 16
     mipBias: -1
     wrapMode: 1
   nPOTScale: 0
@@ -38,7 +42,7 @@ TextureImporter:
   rGBM: 0
   compressionQuality: 50
   allowsAlphaSplitting: 0
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -49,7 +53,121 @@ TextureImporter:
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
-    sprites: []
+    sprites:
+    - name: anim_murcielago_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 89, y: 65}
+        - {x: 85, y: 64}
+        - {x: 74, y: 60}
+        - {x: 63, y: 55}
+        - {x: 27, y: 63}
+        - {x: -110, y: 56}
+        - {x: -110, y: 13}
+        - {x: -91, y: -20}
+        - {x: -21, y: -65}
+        - {x: 48, y: -65}
+        - {x: 111, y: 37}
+        - {x: 111, y: 64}
+        - {x: 109, y: 65}
+    - name: anim_murcielago_1
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -80, y: 120}
+        - {x: -80, y: 21}
+        - {x: -75, y: 7}
+        - {x: -9, y: -37}
+        - {x: 39, y: -37}
+        - {x: 61, y: -3}
+        - {x: 70, y: 18}
+        - {x: 70, y: 120}
+      - - {x: -50, y: 13}
+        - {x: -47, y: 14}
+        - {x: -47, y: 17}
+        - {x: -50, y: 18}
+        - {x: -52, y: 16}
+      - - {x: -55, y: 27}
+        - {x: -49, y: 27}
+        - {x: -49, y: 31}
+        - {x: -51, y: 33}
+        - {x: -53, y: 33}
+        - {x: -55, y: 32}
+      - - {x: 58, y: 50}
+        - {x: 56, y: 48}
+        - {x: 56, y: 46}
+        - {x: 59, y: 43}
+        - {x: 61, y: 43}
+        - {x: 63, y: 45}
+        - {x: 63, y: 48}
+        - {x: 61, y: 50}
+    - name: anim_murcielago_2
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 89, y: 65}
+        - {x: 85, y: 64}
+        - {x: 74, y: 60}
+        - {x: 63, y: 55}
+        - {x: 27, y: 63}
+        - {x: -110, y: 56}
+        - {x: -110, y: 13}
+        - {x: -91, y: -20}
+        - {x: -21, y: -65}
+        - {x: 48, y: -65}
+        - {x: 111, y: 37}
+        - {x: 111, y: 64}
+        - {x: 109, y: 65}
+    - name: anim_murcielago_3
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 123, y: 75}
+        - {x: 21, y: 75}
+        - {x: -128, y: 64}
+        - {x: -128, y: 11}
+        - {x: -23, y: -37}
+        - {x: 47, y: -37}
+        - {x: 101, y: 17}
+        - {x: 128, y: 60}
+        - {x: 128, y: 72}
+      - - {x: 29, y: 31}
+        - {x: 26, y: 28}
+        - {x: 25, y: 24}
+        - {x: 27, y: 22}
+        - {x: 30, y: 22}
+        - {x: 32, y: 24}
+        - {x: 32, y: 29}
+        - {x: 30, y: 31}
     outline: []
   spritePackingTag: 
   userData: 

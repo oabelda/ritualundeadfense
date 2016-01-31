@@ -1,9 +1,13 @@
 fileFormatVersion: 2
 guid: 00d27e0f876786340933eeecb06ce49d
-timeCreated: 1454238922
+timeCreated: 1454240686
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: anim_fantasma_0
+    21300002: anim_fantasma_1
+    21300004: anim_fantasma_2
+    21300006: anim_fantasma_3
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -30,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     filterMode: -1
-    aniso: -1
+    aniso: 16
     mipBias: -1
     wrapMode: 1
   nPOTScale: 0
@@ -38,7 +42,7 @@ TextureImporter:
   rGBM: 0
   compressionQuality: 50
   allowsAlphaSplitting: 0
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -49,7 +53,114 @@ TextureImporter:
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
-    sprites: []
+    sprites:
+    - name: anim_fantasma_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -24, y: 128}
+        - {x: -64, y: 100}
+        - {x: -66, y: 63}
+        - {x: -66, y: -85}
+        - {x: -61, y: -93}
+        - {x: -53, y: -108}
+        - {x: 64, y: -108}
+        - {x: 71, y: -47}
+        - {x: 71, y: 112}
+        - {x: 52, y: 128}
+      - - {x: -62, y: -93}
+        - {x: -62, y: -97}
+        - {x: -57, y: -97}
+        - {x: -56, y: -96}
+        - {x: -56, y: -93}
+        - {x: -58, y: -91}
+        - {x: -59, y: -91}
+    - name: anim_fantasma_1
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -40, y: 111}
+        - {x: -64, y: 102}
+        - {x: -64, y: -128}
+        - {x: 60, y: -128}
+        - {x: 71, y: -53}
+        - {x: 71, y: 93}
+        - {x: 46, y: 111}
+      - - {x: -23, y: -107}
+        - {x: -25, y: -107}
+        - {x: -27, y: -110}
+        - {x: -27, y: -113}
+        - {x: -25, y: -114}
+        - {x: -23, y: -114}
+        - {x: -21, y: -111}
+        - {x: -21, y: -108}
+    - name: anim_fantasma_2
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -28, y: 124}
+        - {x: -66, y: 100}
+        - {x: -66, y: -112}
+        - {x: 38, y: -112}
+        - {x: 71, y: -25}
+        - {x: 71, y: 88}
+        - {x: 63, y: 124}
+      - - {x: -62, y: -97}
+        - {x: -62, y: -101}
+        - {x: -57, y: -101}
+        - {x: -56, y: -100}
+        - {x: -56, y: -97}
+        - {x: -58, y: -95}
+        - {x: -59, y: -95}
+    - name: anim_fantasma_3
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -26, y: 115}
+        - {x: -64, y: 86}
+        - {x: -64, y: -99}
+        - {x: -13, y: -123}
+        - {x: -11, y: -124}
+        - {x: 60, y: -124}
+        - {x: 71, y: -88}
+        - {x: 71, y: 89}
+        - {x: 48, y: 115}
+      - - {x: -23, y: -103}
+        - {x: -25, y: -103}
+        - {x: -27, y: -106}
+        - {x: -27, y: -109}
+        - {x: -25, y: -110}
+        - {x: -23, y: -110}
+        - {x: -21, y: -107}
+        - {x: -21, y: -104}
     outline: []
   spritePackingTag: 
   userData: 

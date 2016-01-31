@@ -1,9 +1,12 @@
 fileFormatVersion: 2
 guid: d92dac2c34c9a17448312c39aebbdaa1
-timeCreated: 1454239690
+timeCreated: 1454240783
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: anim_magia_0
+    21300002: anim_magia_1
+    21300004: anim_magia_2
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -30,7 +33,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     filterMode: -1
-    aniso: -1
+    aniso: 16
     mipBias: -1
     wrapMode: 1
   nPOTScale: 0
@@ -38,7 +41,7 @@ TextureImporter:
   rGBM: 0
   compressionQuality: 50
   allowsAlphaSplitting: 0
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -49,7 +52,85 @@ TextureImporter:
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
-    sprites: []
+    sprites:
+    - name: anim_magia_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 105, y: 36}
+        - {x: 84, y: 88}
+        - {x: 29, y: 107}
+        - {x: -52, y: 107}
+        - {x: -116, y: 39}
+        - {x: -116, y: -2}
+        - {x: -102, y: -90}
+        - {x: -41, y: -108}
+        - {x: -29, y: -121}
+        - {x: 10, y: -121}
+        - {x: 50, y: -110}
+        - {x: 98, y: -59}
+        - {x: 111, y: -22}
+        - {x: 111, y: 19}
+    - name: anim_magia_1
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 80, y: 82}
+        - {x: 39, y: 122}
+        - {x: 7, y: 122}
+        - {x: -3, y: 98}
+        - {x: -60, y: 103}
+        - {x: -86, y: 63}
+        - {x: -123, y: 32}
+        - {x: -125, y: 25}
+        - {x: -125, y: -31}
+        - {x: -116, y: -71}
+        - {x: -72, y: -114}
+        - {x: -44, y: -128}
+        - {x: 33, y: -128}
+        - {x: 58, y: -122}
+        - {x: 90, y: -82}
+        - {x: 111, y: -41}
+        - {x: 111, y: 17}
+    - name: anim_magia_2
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 111, y: 18}
+        - {x: 102, y: 47}
+        - {x: 53, y: 94}
+        - {x: -20, y: 94}
+        - {x: -74, y: 78}
+        - {x: -111, y: 45}
+        - {x: -111, y: -27}
+        - {x: -106, y: -46}
+        - {x: -78, y: -90}
+        - {x: -8, y: -114}
+        - {x: 43, y: -114}
+        - {x: 91, y: -81}
+        - {x: 110, y: -44}
+        - {x: 111, y: -34}
     outline: []
   spritePackingTag: 
   userData: 
