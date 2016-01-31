@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public delegate void StandartEvent();
 
@@ -179,11 +180,12 @@ public class GameManager : MonoBehaviour {
         color.a = 0;
         towerRender.color = color;
 
-        endInformation.SetActive(true);
-        for (int i = 0; i < _round; ++i)
-        {
-            endInformation.SendMessage("fin", SendMessageOptions.RequireReceiver);
-        }
+        SceneManager.LoadScene("EndScene");
+        //endInformation.SetActive(true);
+        //for (int i = 0; i < _round; ++i)
+        //{
+        //    endInformation.SendMessage("fin", SendMessageOptions.RequireReceiver);
+        //}
     }
 
     public void changeActiveSpell(GameObject newSpell)
