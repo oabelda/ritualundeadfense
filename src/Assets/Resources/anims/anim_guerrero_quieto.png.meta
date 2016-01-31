@@ -1,0 +1,126 @@
+fileFormatVersion: 2
+guid: 4db0e626258911e429f1dd73a582f232
+timeCreated: 1454243314
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: anim_guerrero_quieto_0
+    21300002: anim_guerrero_quieto_1
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: anim_guerrero_quieto_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -84, y: 128}
+        - {x: -85, y: 127}
+        - {x: -85, y: -75}
+        - {x: -50, y: -126}
+        - {x: -43, y: -126}
+        - {x: -29, y: -86}
+        - {x: -20, y: -82}
+        - {x: -17, y: -75}
+        - {x: -19, y: -81}
+        - {x: -21, y: -83}
+        - {x: -22, y: -89}
+        - {x: 3, y: -126}
+        - {x: 78, y: -126}
+        - {x: 126, y: -114}
+        - {x: 128, y: -106}
+        - {x: 128, y: 56}
+        - {x: 43, y: 128}
+      - - {x: 119, y: 15}
+        - {x: 119, y: 13}
+        - {x: 122, y: 10}
+        - {x: 125, y: 11}
+        - {x: 125, y: 15}
+        - {x: 123, y: 17}
+        - {x: 121, y: 17}
+    - name: anim_guerrero_quieto_1
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 36, y: 93}
+        - {x: 5, y: 95}
+        - {x: 17, y: 82}
+        - {x: -11, y: 118}
+        - {x: -110, y: 118}
+        - {x: -128, y: 103}
+        - {x: -128, y: 64}
+        - {x: -79, y: -26}
+        - {x: -29, y: -92}
+        - {x: 12, y: -126}
+        - {x: 97, y: -126}
+        - {x: 128, y: -92}
+        - {x: 128, y: 24}
+        - {x: 92, y: 94}
+      - - {x: 119, y: 15}
+        - {x: 119, y: 13}
+        - {x: 122, y: 10}
+        - {x: 125, y: 11}
+        - {x: 125, y: 15}
+        - {x: 123, y: 17}
+        - {x: 121, y: 17}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
