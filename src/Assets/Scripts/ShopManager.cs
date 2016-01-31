@@ -25,7 +25,10 @@ public class ShopManager : MonoBehaviour
     private List<Image> _fila2;
     [SerializeField]
     private List<Image> _fila3;
-
+    [SerializeField]
+    private Text _goldCounter;
+    [SerializeField]
+    private Text[] prices;
 
     // Use this for spawn this instance
     void Awake()
@@ -34,12 +37,18 @@ public class ShopManager : MonoBehaviour
             instance = this;
         else
             Destroy(gameObject);
+
+        _goldCounter.text = "" + _gold;
+        setSpellsPrices();
+        prices[3].text = "" +_goldMana;
+        prices[4].text = "" + _goldRepair;
     }
 
 
     public static void addGold(int amount)
     {
         instance._gold += amount;
+        instance._goldCounter.text = "" + instance._gold;
     }
 
     public void LearnSpell(string spell)
@@ -51,6 +60,7 @@ public class ShopManager : MonoBehaviour
             {
                 if (_gold >= _spellList[i]._spells[0].GetComponent<Spell>().goldCost && _spellList[i].level < _spellList[i]._spells.Count)
                 {
+                    Debug.Log("alksdjhfila");
                     if (_spellList[i]._spells[0] != null)
                     {
                         if(_spellList[i].level+1 <= _spellList[i]._spells.Count)
@@ -64,6 +74,7 @@ public class ShopManager : MonoBehaviour
             }
 
         }
+        setSpellsPrices();
     }
 
     public void RestoreMana()
@@ -85,10 +96,19 @@ public class ShopManager : MonoBehaviour
         }
     }
 
+    void setSpellsPrices()
+    {
+        for(int i = 0; i < _spellList.Count; i++)
+        {
+            prices[i].text = "" + _spellList[i]._spells[_spellList[i].level].GetComponent<Spell>().goldCost;
+        }
+    }
+
     //Actualiza el texto del dinero
     void removeGold(int amount)
     {
         _gold -= amount;
+        _goldCounter.text = "" + _gold;
     }
 
     void UpdateSpellIndication(int fila)

@@ -9,7 +9,10 @@ public class TowerProjectileManager : MonoBehaviour
     float m_speed;
     [SerializeField]
     float m_lifetime;
-
+    [SerializeField]
+    float m_radius;
+    [SerializeField]
+    float m_aoedamage;
 
     // Variables privadas
     private float m_damage;
@@ -17,8 +20,7 @@ public class TowerProjectileManager : MonoBehaviour
     private Rigidbody2D _rigidbody;
     private GameObject _collider;
     private Vector3 _initialposition;
-    private string _shootertag;
-
+    private float _angle;
     void Awake()
     {
         Destroy(this.gameObject, m_lifetime);
@@ -35,53 +37,67 @@ public class TowerProjectileManager : MonoBehaviour
     }
 
     // Otros métodos publicos
-    public void initParameters(float damage, Vector2 dir, string tag)
+    public void initParameters(float damage, Vector2 dir, string tag, Transform waypoint)
     {
         m_damage = damage;
         direction = dir;
-        _shootertag = tag;
+        
+        _angle = Mathf.Atan2(direction.y, direction.x);
+        float angleMax = Mathf.PI;
+        float angleMin = Mathf.Atan2(waypoint.position.y, waypoint.position.x);
+
+        if (_angle > angleMin)
+        {
+            _angle = angleMin;
+            float modulo = direction.magnitude;
+            direction = waypoint.position - transform.position;
+            direction = direction.normalized * modulo;
+
+        }
+        else if (_angle < angleMax)
+            _angle = angleMax;
+
+        direction = new Vector2(direction.x + Random.Range(-2f, 2f), direction.y);
+        transform.Rotate(new Vector3(0, 0, _angle * 90 / Mathf.PI));
     }
     // Otros metodos privados
     void moveProjectile()
     {
-
+        
         _rigidbody.velocity = direction * m_speed * Time.deltaTime;
 
     }
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        switch (_shootertag)
+
+        if (other.CompareTag("Enemy"))
         {
-            case "Torre":
-            case "Ally":
-                if (other.CompareTag("Enemy"))
-                {
-                    other.gameObject.SendMessage("HitEnemy", m_damage, SendMessageOptions.RequireReceiver);
+            other.gameObject.SendMessage("HitEnemy", m_damage, SendMessageOptions.RequireReceiver);
+            explosion();
+            Destroy(this.gameObject);
+        }
+        else if (other.CompareTag("Ally") || other.CompareTag("Torre"))
+            Physics2D.IgnoreCollision(GetComponent<Collider2D>(), other.GetComponent<Collider2D>(), true);
+        else
+        {
+            explosion();
+            Destroy(this.gameObject);
+        }
 
-                    Destroy(this.gameObject);
-                }
-                else if (other.CompareTag("Ally") || other.CompareTag("Torre"))
-                    Physics2D.IgnoreCollision(GetComponent<Collider2D>(), other.GetComponent<Collider2D>(), true);
+    }
 
+    
 
-
-                break;
-            case "Enemy":
-                if (other.CompareTag("Ally"))
-                {
-                    other.gameObject.SendMessage("HitEnemy", m_damage, SendMessageOptions.RequireReceiver);
-                    Destroy(this.gameObject);
-                }
-                else if (other.CompareTag("Torre"))
-                {
-                    other.SendMessage("HitEnemy", m_damage, SendMessageOptions.RequireReceiver);
-                    Destroy(this.gameObject);
-                }
-                else if (other.CompareTag("Enemy"))
-                    Physics2D.IgnoreCollision(GetComponent<Collider2D>(), other.GetComponent<Collider2D>(), true);
-
-                break;
+    void explosion()
+    {
+       Collider2D[] colliders = Physics2D.OverlapCircleAll(new Vector2(transform.position.x, transform.position.y), m_radius);
+        for (int i = 0; i < colliders.Length; i++)
+        {
+            if (colliders[i].CompareTag("Enemy"))
+            {
+                colliders[i].gameObject.SendMessage("HitEnemy", m_aoedamage, SendMessageOptions.RequireReceiver);
+            }
         }
     }
 }

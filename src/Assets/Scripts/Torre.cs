@@ -12,6 +12,11 @@ public class Torre : MonoBehaviour {
     float _towerCooldown;
 
     [SerializeField]
+    Transform _waypointInicio;
+    [SerializeField]
+    Transform _waypointFinal;
+
+    [SerializeField]
     double _hpPerLevel;
     [SerializeField]
     double _manaPerLevel;
@@ -133,7 +138,7 @@ public class Torre : MonoBehaviour {
                 Vector3 _directionVector = Camera.main.ScreenToWorldPoint(Input.mousePosition) - _nigromante.position;
 
                 GameObject newProjectile = Instantiate(projectile, _nigromante.position, Quaternion.identity) as GameObject;
-                newProjectile.GetComponent<ProjectileManager>().initParameters(_towerDamage, _directionVector, this.gameObject.tag);
+                newProjectile.GetComponent<TowerProjectileManager>().initParameters(_towerDamage, _directionVector, this.gameObject.tag, _waypointInicio);
                 _towerCooldownTimer = 0.0f;
 
         }

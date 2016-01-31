@@ -11,7 +11,7 @@ GameObject:
   - 212: {fileID: 21218238}
   - 50: {fileID: 5085978}
   - 61: {fileID: 6100990}
-  - 114: {fileID: 11478436}
+  - 114: {fileID: 11418270}
   m_Layer: 2
   m_Name: TowerProjectile
   m_TagString: Untagged
@@ -26,8 +26,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 129516}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_LocalPosition: {x: -3.3502579, y: -0.97511053, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -59,10 +59,10 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_UsedByEffector: 0
-  m_Offset: {x: -0.00000017881393, y: -0.0049765063}
+  m_Offset: {x: -0.005114635, y: -0.004976511}
   serializedVersion: 2
-  m_Size: {x: 0.10399147, y: 0.07420068}
---- !u!114 &11478436
+  m_Size: {x: 0.62566435, y: 0.40152487}
+--- !u!114 &11418270
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -70,11 +70,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 129516}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 925553ac74ae53947a10ddd93d2d769f, type: 3}
+  m_Script: {fileID: 11500000, guid: dd780df410ef49a46b110794057115a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_speed: 25
-  m_lifetime: 2.5
+  m_speed: 100
+  m_lifetime: 2
+  m_radius: 2
+  m_aoedamage: 1
 --- !u!212 &21218238
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -101,7 +103,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 10915, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: ffe12c1cc1c212e4eac87d8de91c72cc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -118,7 +120,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_speed
-      value: 25
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_IsTrigger
@@ -126,7 +128,20 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_lifetime
-      value: 2.5
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: ffe12c1cc1c212e4eac87d8de91c72cc,
+        type: 3}
+    - target: {fileID: 0}
+      propertyPath: m_radius
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_aoedamage
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

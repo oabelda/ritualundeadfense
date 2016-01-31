@@ -45,7 +45,7 @@ MonoBehaviour:
   goldCost: 100
   manaCost: 10
   minionPrefab: {fileID: 180896, guid: 5c97ec52d733a21429e347b73f5589e6, type: 2}
-  _Yoffset: 0.7
+  _Yoffset: 1.4
 --- !u!212 &21221860
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -113,7 +113,7 @@ Prefab:
       objectReference: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 0}
       propertyPath: _Yoffset
-      value: 0.7
+      value: 1.4
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_Layer

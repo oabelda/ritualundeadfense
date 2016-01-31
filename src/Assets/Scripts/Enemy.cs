@@ -4,8 +4,8 @@ using System.Collections;
 public class Enemy : MonoBehaviour {
     // Variables publicas
 
-    public double InitialLife;
-    public double LifeIncrease;
+    public float InitialLife;
+    public float LifeIncrease;
     public float Damage;
     public float DamageIncrease;
     public float AttackSpeed;
@@ -22,7 +22,7 @@ public class Enemy : MonoBehaviour {
 
     // Variables privadas
 
-    private double _life;
+    public float _life;
     private float _damage;
     private float _lastAtackTime;
     private enum STATE { WALK=0, WALKING, ATTACK, ATTACKING, DIE, DYING }
