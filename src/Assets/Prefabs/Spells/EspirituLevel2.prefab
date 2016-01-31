@@ -46,6 +46,7 @@ MonoBehaviour:
   manaCost: 35
   minionPrefab: {fileID: 183942, guid: 9783b8986c7fe76459dad05926fe9f89, type: 2}
   _Yoffset: 1.4
+  audioSourceId: espiritu2
 --- !u!212 &21280512
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -147,6 +148,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_Color.b
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: audioSourceId
+      value: espiritu2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

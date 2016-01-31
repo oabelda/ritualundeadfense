@@ -15,6 +15,8 @@ public class AudioManager : MonoBehaviour {
     List<PairAudioClipString> _audioClips;
 
     private GameObject _currentAudioSource;
+    private GameObject _AmbientMainSource;
+
     // Metodos Awake, Start, Update....
 
     // Use this for spawn this instance
@@ -28,11 +30,11 @@ public class AudioManager : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        _currentAudioSource = Instantiate(_audioSourcePrefab, transform.position, Quaternion.identity) as GameObject;
-        _currentAudioSource.transform.parent = this.transform;
-        _currentAudioSource.GetComponent<AudioSource>().clip = _music;
-        _currentAudioSource.GetComponent<AudioSource>().loop = true;
-        _currentAudioSource.GetComponent<AudioSource>().Play();
+        _AmbientMainSource = Instantiate(_audioSourcePrefab, transform.position, Quaternion.identity) as GameObject;
+        _AmbientMainSource.transform.parent = this.transform;
+        _AmbientMainSource.GetComponent<AudioSource>().clip = _music;
+        _AmbientMainSource.GetComponent<AudioSource>().loop = true;
+        _AmbientMainSource.GetComponent<AudioSource>().Play();
     }
 	
 	// Update is called once per frame
@@ -75,6 +77,11 @@ public class AudioManager : MonoBehaviour {
         _currentAudioSource.GetComponent<AudioSource>().volume = volume;
         _currentAudioSource.GetComponent<AudioSource>().Play();
         _currentAudioSource.GetComponent<AudioElement>().CheckActivity = true;
+    }
+
+    public void EndMain()
+    {
+        Destroy(_AmbientMainSource);
     }
 
 

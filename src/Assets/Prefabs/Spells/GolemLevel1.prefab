@@ -46,6 +46,7 @@ MonoBehaviour:
   manaCost: 50
   minionPrefab: {fileID: 180896, guid: 5c97ec52d733a21429e347b73f5589e6, type: 2}
   _Yoffset: 1.4
+  audioSourceId: golem1
 --- !u!212 &21221860
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -147,6 +148,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_Color.b
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: audioSourceId
+      value: golem1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

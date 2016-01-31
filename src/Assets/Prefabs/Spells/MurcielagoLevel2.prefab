@@ -46,6 +46,7 @@ MonoBehaviour:
   manaCost: 30
   minionPrefab: {fileID: 185656, guid: 0cba0b117ed65164388a4e757778c9ce, type: 2}
   _Yoffset: 2
+  audioSourceId: murcielago2
 --- !u!212 &21284836
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -147,6 +148,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_Color.b
       value: 0.7607844
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: audioSourceId
+      value: murcielago2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

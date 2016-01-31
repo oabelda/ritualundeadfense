@@ -53,9 +53,23 @@ MonoBehaviour:
   - _audioClip: {fileID: 8300000, guid: e3ed62e7a737f1b45851c8d58b5fc767, type: 3}
     _stringKey: Caja
   - _audioClip: {fileID: 8300000, guid: 24e9f51d7c6b2064eb131c129136d166, type: 3}
-    _stringKey: spellOk
+    _stringKey: outOfMana
   - _audioClip: {fileID: 8300000, guid: 26d460ce398c4d840b09fedefdfcf110, type: 3}
     _stringKey: spellNot
+  - _audioClip: {fileID: 8300000, guid: b56375974c159c540b9713c1d6d46b1e, type: 3}
+    _stringKey: endGame
+  - _audioClip: {fileID: 8300000, guid: 8a4ff9a47eb443146b612b5ab5395b36, type: 3}
+    _stringKey: murcielago1
+  - _audioClip: {fileID: 8300000, guid: 1e937b45abb50c44c9239d3e7bed5ba9, type: 3}
+    _stringKey: murcielago2
+  - _audioClip: {fileID: 8300000, guid: ecc05d9f752b20247bdd2fb6226d4f42, type: 3}
+    _stringKey: espiritu1
+  - _audioClip: {fileID: 8300000, guid: b7a64a7cdb01fdd4b831cb93a37eb6db, type: 3}
+    _stringKey: espiritu2
+  - _audioClip: {fileID: 8300000, guid: 3b511cf07a28b4440948deb73172b27d, type: 3}
+    _stringKey: golem1
+  - _audioClip: {fileID: 8300000, guid: 9ae869e084e41844483a7e816c459e45, type: 3}
+    _stringKey: golem2
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

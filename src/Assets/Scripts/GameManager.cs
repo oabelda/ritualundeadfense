@@ -119,10 +119,15 @@ public class GameManager : MonoBehaviour {
     //Termina el juego y salen los resultados
     public static void finishGame()
     {
+        // Sonido de fin del juego
+        if (instance._gameOver) return;
         //Tiene que parpadear el castillo 3 veces cambiando el alpha
         //Luego sale el nuemero de rondas que has conseguido superar
         //Impedimos que salgan mas enemigos
         instance._gameOver = true;
+
+        AudioManager.Instance.EndMain();
+        AudioManager.Instance.Play("endGame");
         //Paramos el movimiento o las acciones de los enemigos e impedimos lanzar proyectiles o el uso del SpellCircle
         //Cojo el render del gameObject Torre
         SpriteRenderer towerRender = GameObject.FindGameObjectWithTag("Torre").GetComponent<SpriteRenderer>();
@@ -180,7 +185,9 @@ public class GameManager : MonoBehaviour {
         color.a = 0;
         towerRender.color = color;
 
-        SceneManager.LoadScene("EndScene");
+        yield return new WaitForSeconds(3f);
+
+        SceneManager.LoadScene("MainMenu");
         //endInformation.SetActive(true);
         //for (int i = 0; i < _round; ++i)
         //{

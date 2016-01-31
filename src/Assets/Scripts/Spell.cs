@@ -9,6 +9,7 @@ public class Spell : MonoBehaviour
     public int manaCost = 10;
     public GameObject minionPrefab;
     public float _Yoffset;
+    public string audioSourceId;
     // Variables privadas
     //float duration = 5;
     private Transform greenFloor; // Para indicar dónde se pueden castear torres
@@ -17,6 +18,7 @@ public class Spell : MonoBehaviour
     
     void Start()
     {
+        AudioManager.Instance.Play(audioSourceId);
         GameObject gmanager = GameObject.FindGameObjectWithTag("GameManager");
         if (gmanager != null)
         {

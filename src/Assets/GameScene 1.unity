@@ -691,10 +691,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 11435262, guid: 8c8199e5cc654c84482eeb40f2b14b9e, type: 2}
-      propertyPath: _audioClips.Array.size
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 406612, guid: 8c8199e5cc654c84482eeb40f2b14b9e, type: 2}
       propertyPath: m_LocalPosition.x
       value: 597.94086
@@ -726,22 +722,6 @@ Prefab:
     - target: {fileID: 406612, guid: 8c8199e5cc654c84482eeb40f2b14b9e, type: 2}
       propertyPath: m_RootOrder
       value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 11435262, guid: 8c8199e5cc654c84482eeb40f2b14b9e, type: 2}
-      propertyPath: _audioClips.Array.data[1]._audioClip
-      value: 
-      objectReference: {fileID: 8300000, guid: 24e9f51d7c6b2064eb131c129136d166, type: 3}
-    - target: {fileID: 11435262, guid: 8c8199e5cc654c84482eeb40f2b14b9e, type: 2}
-      propertyPath: _audioClips.Array.data[2]._audioClip
-      value: 
-      objectReference: {fileID: 8300000, guid: 26d460ce398c4d840b09fedefdfcf110, type: 3}
-    - target: {fileID: 11435262, guid: 8c8199e5cc654c84482eeb40f2b14b9e, type: 2}
-      propertyPath: _audioClips.Array.data[1]._stringKey
-      value: spellOk
-      objectReference: {fileID: 0}
-    - target: {fileID: 11435262, guid: 8c8199e5cc654c84482eeb40f2b14b9e, type: 2}
-      propertyPath: _audioClips.Array.data[2]._stringKey
-      value: spellNot
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8c8199e5cc654c84482eeb40f2b14b9e, type: 2}
