@@ -5,7 +5,7 @@ using System.Collections;
 
 public class AudioManager : MonoBehaviour {
     // Variables publicas
-
+    public static AudioManager Instance;
     // Variables privadas
     [SerializeField]
     GameObject _audioSourcePrefab;
@@ -18,12 +18,16 @@ public class AudioManager : MonoBehaviour {
     // Metodos Awake, Start, Update....
 
     // Use this for spawn this instance
-    void Awake(){
-	
-	}
+    void Awake()
+    {
+        if (Instance == null)
+            Instance = this;
+        else
+            Destroy(gameObject);
+    }
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
         _currentAudioSource = Instantiate(_audioSourcePrefab, transform.position, Quaternion.identity) as GameObject;
         _currentAudioSource.transform.parent = this.transform;
         _currentAudioSource.GetComponent<AudioSource>().clip = _music;

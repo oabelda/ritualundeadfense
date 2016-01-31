@@ -60,6 +60,7 @@ public class SpellCircle : MonoBehaviour {
                     if (Torre.TowerCurrentMana >= spellPrefab.GetComponent<Spell>().manaCost)
                     {
                         Torre.TowerCurrentMana -= spellPrefab.GetComponent<Spell>().manaCost;
+                        AudioManager.Instance.Play("Good");
                         GameObject.Instantiate(spellPrefab);
                     }
                     else
@@ -72,6 +73,7 @@ public class SpellCircle : MonoBehaviour {
             {
                 if (_spell.Count > 0 && Torre != null)
                 {
+                    AudioManager.Instance.Play("Wrong");
                     Torre.TowerCurrentMana -= manaPenalization + GameManager.Round * manaPenalizationPerRound;
                     if (Torre.TowerCurrentMana < 0)
                         Torre.TowerCurrentMana = 0;
