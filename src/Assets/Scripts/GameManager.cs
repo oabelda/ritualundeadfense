@@ -192,11 +192,15 @@ public class GameManager : MonoBehaviour {
         {
             Destroy(activeSpell);
             activeSpell = newSpell;
-            activeSpell.transform.position = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width / 2, Screen.height / 2, 0));
+            Vector3 newposition = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width / 2, Screen.height / 2, 0));
+            newposition.z = 0;
+            activeSpell.transform.position = newposition;
         }
         else { 
             activeSpell = newSpell;
-            activeSpell.transform.position = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width / 2, Screen.height / 2, 0));
+            Vector3 newposition = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width / 2, Screen.height / 2, 0));
+            newposition.z = 0;
+            activeSpell.transform.position = newposition;
         }
     }
 }
