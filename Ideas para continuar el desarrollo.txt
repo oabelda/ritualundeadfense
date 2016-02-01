@@ -1,0 +1,11 @@
+- Modos de dificultad. Fácil = se pausa el juego cuando invocas
+- Tutorial
+- Animaciones
+- Efectos (partículas/efectos 2D)
+- Escenarios con diferentes tipos de enemigos
+- Mas hechizos y mas niveles por hechizo, diferentes tipos de hechizos aparte de invocaciones
+- Dejar que el jugador elija "alienación" de hechizos antes de empezar un escenario
+- Puntuaciones y leaderboards
+- Distintos tipos de avatares con hechizo unico, comprar avatares
+- Diferentes tipos de enemigos con sus puntos fuertes y debiles
+- los prisioneros podrían dar bonus pasivos, diferentes tipos de prisioneros
