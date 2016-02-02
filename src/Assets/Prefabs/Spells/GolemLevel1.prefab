@@ -42,8 +42,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   runes: 0200000003000000
   spellID: 0
-  goldCost: 100
-  manaCost: 35
+  goldCost: 60
+  manaCost: 30
   minionPrefab: {fileID: 180896, guid: 5c97ec52d733a21429e347b73f5589e6, type: 2}
   _Yoffset: 1.4
   audioSourceId: golem1
@@ -131,11 +131,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: goldCost
-      value: 100
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: manaCost
-      value: 35
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_Color.r

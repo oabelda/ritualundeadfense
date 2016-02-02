@@ -466,10 +466,48 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
   m_FlipY: 0
---- !u!1 &1214364521 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 162224, guid: cc610f8cf6c6b204d80d6b9b5e8f72b9, type: 2}
-  m_PrefabInternal: {fileID: 1697457202}
+--- !u!1001 &1221406977
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1697457208}
+    m_Modifications:
+    - target: {fileID: 404054, guid: a1de86716d6ebed4484fdddd5b92f1a0, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 404054, guid: a1de86716d6ebed4484fdddd5b92f1a0, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 404054, guid: a1de86716d6ebed4484fdddd5b92f1a0, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 404054, guid: a1de86716d6ebed4484fdddd5b92f1a0, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 404054, guid: a1de86716d6ebed4484fdddd5b92f1a0, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 404054, guid: a1de86716d6ebed4484fdddd5b92f1a0, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 404054, guid: a1de86716d6ebed4484fdddd5b92f1a0, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 404054, guid: a1de86716d6ebed4484fdddd5b92f1a0, type: 2}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: a1de86716d6ebed4484fdddd5b92f1a0, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &1357773588
 GameObject:
   m_ObjectHideFlags: 0
@@ -800,6 +838,11 @@ Prefab:
 GameObject:
   m_PrefabParentObject: {fileID: 102568, guid: cc610f8cf6c6b204d80d6b9b5e8f72b9, type: 2}
   m_PrefabInternal: {fileID: 1697457202}
+--- !u!224 &1697457208 stripped
+RectTransform:
+  m_PrefabParentObject: {fileID: 22478386, guid: cc610f8cf6c6b204d80d6b9b5e8f72b9,
+    type: 2}
+  m_PrefabInternal: {fileID: 1697457202}
 --- !u!1 &1791194337 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 107516, guid: 7f88e1bc38e6d4342bcfdab74b71d642, type: 2}
@@ -1027,7 +1070,7 @@ Prefab:
     - target: {fileID: 11405182, guid: 7f88e1bc38e6d4342bcfdab74b71d642, type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
-      objectReference: {fileID: 1214364521}
+      objectReference: {fileID: 0}
     - target: {fileID: 11405182, guid: 7f88e1bc38e6d4342bcfdab74b71d642, type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
       value: SetActive

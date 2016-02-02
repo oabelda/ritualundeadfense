@@ -33,6 +33,8 @@ public class ShopManager : MonoBehaviour
     [SerializeField]
     private List<Button> _spellsButtons;
 
+    private Torre _tower;
+
     // Use this for spawn this instance
     void Awake()
     {
@@ -45,6 +47,8 @@ public class ShopManager : MonoBehaviour
         setSpellsPrices();
         prices[3].text = "" +_goldMana;
         prices[4].text = "" + _goldRepair;
+
+        _tower = GameObject.FindGameObjectWithTag("Torre").GetComponent<Torre>();
     }
 
 
@@ -89,7 +93,7 @@ public class ShopManager : MonoBehaviour
 
     public void RestoreMana()
     {
-        if (_gold >= _goldMana)
+        if (_gold >= _goldMana && _tower.TowerCurrentMana < _tower.TowerMaxMana)
         {
             GameObject.FindGameObjectWithTag("Torre").SendMessage("restoreMana", _manaRestored, SendMessageOptions.RequireReceiver);
             removeGold(_goldMana);
@@ -99,7 +103,7 @@ public class ShopManager : MonoBehaviour
 
     public void RestoreLife()
     {
-        if (_gold >= _goldRepair)
+        if (_gold >= _goldRepair && _tower.TowerCurrentHP < _tower.TowerMaxHP)
         {
             GameObject.FindGameObjectWithTag("Torre").SendMessage("repairTower", _lifeRestored, SendMessageOptions.RequireReceiver);
             removeGold(_goldRepair);

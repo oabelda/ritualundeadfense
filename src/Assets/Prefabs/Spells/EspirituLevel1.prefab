@@ -42,8 +42,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   runes: 0000000001000000
   spellID: 0
-  goldCost: 40
-  manaCost: 25
+  goldCost: 30
+  manaCost: 20
   minionPrefab: {fileID: 135660, guid: e702c3a09d0baa54fa041cca0410ad68, type: 2}
   _Yoffset: 1.4
   audioSourceId: espiritu1
@@ -127,7 +127,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: goldCost
-      value: 40
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_Color.r
@@ -143,7 +143,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: manaCost
-      value: 25
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: audioSourceId

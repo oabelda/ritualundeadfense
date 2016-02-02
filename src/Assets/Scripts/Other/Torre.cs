@@ -48,6 +48,9 @@ public class Torre : MonoBehaviour {
     private SpriteRenderer _towerSprite;
     private float _towerCooldownTimer;
     private Transform _nigromante;
+    private Animator _animatorNigromante;
+    private Animator _animatorRehen;
+    private bool _animationRehenDone;
     // Use this for initialization
     void Start () {
         TowerCurrentHP = TowerMaxHP;
@@ -59,6 +62,8 @@ public class Torre : MonoBehaviour {
         _towerCooldownTimer = _towerCooldown;
         GameManager.OnRoundChange += OnRoundChange;
         _nigromante = transform.FindChild("Nigromante").GetComponent<Transform>();
+        _animatorNigromante = _nigromante.gameObject.GetComponent<Animator>();
+        _animatorRehen = transform.FindChild("Rehen").GetComponent<Animator>();
     }
 
     void Update()
@@ -66,6 +71,12 @@ public class Torre : MonoBehaviour {
         _towerCooldownTimer += Time.deltaTime;
         TowerCurrentMana += manaRegen * Time.deltaTime;
         TowerCurrentMana = (TowerCurrentMana<TowerMaxMana)? TowerCurrentMana : TowerMaxMana;
+
+        int num = Random.Range(0, 100);
+        if(num < 25 && !_animationRehenDone)
+        {
+            animationRehen();
+        }
     }
 
     // Función para registrar el daño que recibe la torre
@@ -135,16 +146,37 @@ public class Torre : MonoBehaviour {
 
         if (_towerCooldownTimer >= _towerCooldown)
         {
-                Vector3 _directionVector = Camera.main.ScreenToWorldPoint(Input.mousePosition) - _nigromante.position;
+            _animatorNigromante.SetBool("attacking", true);
+            Vector3 _directionVector = Camera.main.ScreenToWorldPoint(Input.mousePosition) - _nigromante.position;
 
-                GameObject newProjectile = Instantiate(projectile, _nigromante.position, Quaternion.identity) as GameObject;
-                newProjectile.GetComponent<TowerProjectileManager>().initParameters(_towerDamage, _directionVector, this.gameObject.tag, _waypointInicio);
-                _towerCooldownTimer = 0.0f;
-
+            GameObject newProjectile = Instantiate(projectile, _nigromante.position, Quaternion.identity) as GameObject;
+            newProjectile.GetComponent<TowerProjectileManager>().initParameters(_towerDamage, _directionVector, this.gameObject.tag, _waypointInicio);
+            _towerCooldownTimer = 0.0f;
+            StartCoroutine(stopAnimationNigromante());
         }
-       
+        
     }
 
+    void animationRehen()
+    {
+        _animationRehenDone = true;
+        _animatorRehen.SetBool("sos", true);
+        StartCoroutine(stopAnimationNigromante());
+    }
 
+    IEnumerator stopAnimationNigromante()
+    {
+        yield return new WaitForSeconds(0.5f);
+        _animatorNigromante.SetBool("attacking", false);
+    }
+
+    IEnumerator stopAnimationRehem()
+    {
+        yield return new WaitForSeconds(0.5f);
+        _animatorRehen.SetBool("sos", false);
+        _animationRehenDone = false;
+    }
+
+    
 
 }

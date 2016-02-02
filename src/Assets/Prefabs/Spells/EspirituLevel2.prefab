@@ -43,7 +43,7 @@ MonoBehaviour:
   runes: 000000000100000002000000
   spellID: 0
   goldCost: 75
-  manaCost: 35
+  manaCost: 30
   minionPrefab: {fileID: 183942, guid: 9783b8986c7fe76459dad05926fe9f89, type: 2}
   _Yoffset: 1.4
   audioSourceId: espiritu2
@@ -94,7 +94,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: manaCost
-      value: 35
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: runes.Array.data[1]

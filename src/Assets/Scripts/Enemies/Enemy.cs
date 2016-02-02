@@ -84,6 +84,7 @@ public class Enemy : MonoBehaviour {
         //Check if damege kills enemy
         if(_life<=0f)
         {
+            _life = 0;
             _state = STATE.DIE;
         }
     }

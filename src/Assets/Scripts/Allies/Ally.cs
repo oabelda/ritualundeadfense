@@ -30,6 +30,7 @@ public class Ally : MonoBehaviour {
         //Check if damege kills enemy
         if ((_life -= damage) <= 0f)
         {
+            _life = 0;
             StartCoroutine(die());
         }
     }
