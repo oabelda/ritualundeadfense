@@ -43,7 +43,7 @@ MonoBehaviour:
   runes: 0200000003000000
   spellID: 0
   goldCost: 100
-  manaCost: 50
+  manaCost: 35
   minionPrefab: {fileID: 180896, guid: 5c97ec52d733a21429e347b73f5589e6, type: 2}
   _Yoffset: 1.4
   audioSourceId: golem1
@@ -135,7 +135,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: manaCost
-      value: 50
+      value: 35
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_Color.r

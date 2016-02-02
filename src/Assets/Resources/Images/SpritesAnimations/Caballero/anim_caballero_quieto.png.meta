@@ -1,0 +1,126 @@
+fileFormatVersion: 2
+guid: 2cf8243cd9a60da45b9c88c780edc322
+timeCreated: 1454406049
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: anim_caballero_quieto_0
+    21300002: anim_caballero_quieto_1
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: anim_caballero_quieto_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -3, y: -128}
+        - {x: 0, y: -127}
+        - {x: 0, y: -124}
+        - {x: -3, y: -123}
+        - {x: -5, y: -125}
+      - - {x: 24, y: -125}
+        - {x: 25, y: -128}
+        - {x: 28, y: -128}
+        - {x: 30, y: -126}
+        - {x: 29, y: -123}
+        - {x: 26, y: -123}
+      - - {x: 74, y: 103}
+        - {x: 9, y: 93}
+        - {x: -38, y: 32}
+        - {x: -121, y: -34}
+        - {x: -121, y: -120}
+        - {x: 67, y: -120}
+        - {x: 93, y: -91}
+        - {x: 93, y: 103}
+    - name: anim_caballero_quieto_1
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -3, y: -128}
+        - {x: 0, y: -127}
+        - {x: 0, y: -124}
+        - {x: -3, y: -123}
+        - {x: -5, y: -125}
+      - - {x: 24, y: -125}
+        - {x: 25, y: -128}
+        - {x: 28, y: -128}
+        - {x: 30, y: -126}
+        - {x: 29, y: -123}
+        - {x: 26, y: -123}
+      - - {x: -8, y: 93}
+        - {x: -122, y: -9}
+        - {x: -122, y: -42}
+        - {x: -114, y: -48}
+        - {x: -63, y: -73}
+        - {x: -51, y: -74}
+        - {x: -48, y: -69}
+        - {x: -47, y: -65}
+        - {x: -42, y: -81}
+        - {x: -31, y: -106}
+        - {x: -22, y: -120}
+        - {x: 44, y: -120}
+        - {x: 94, y: -95}
+        - {x: 96, y: -84}
+        - {x: 96, y: 93}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -43,7 +43,7 @@ MonoBehaviour:
   runes: 0400000000000000
   spellID: 0
   goldCost: 10
-  manaCost: 20
+  manaCost: 15
   minionPrefab: {fileID: 140880, guid: afb65950a0c9c0249af870d9b71ed104, type: 2}
   _Yoffset: 2
   audioSourceId: murcielago1
@@ -143,7 +143,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: manaCost
-      value: 20
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: audioSourceId
