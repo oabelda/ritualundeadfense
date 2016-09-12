@@ -5,5 +5,7 @@ An evil necromancer has been scaring the humans for years. But one day, the huma
 This game was created for the Global Game Jam 2016
 
 #Sites
+
 Global Game Jam Site: http://globalgamejam.org/2016/games/ritual-undeadfense
+
 Youtube Canal: https://www.youtube.com/channel/UCg4qR7bFaaqphEHnVa4oUjg
